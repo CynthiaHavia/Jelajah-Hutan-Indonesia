@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jelajah Hutan Indonesia</title>
+
+https://cdn.tailwindcss.comscript>
+
+<style>
+body{
+    background: linear-gradient(135deg,#22c55e,#16a34a,#0ea5e9);
+    min-height:100vh;
+    overflow-x:hidden;
+}
+
+.character{
+    font-size:65px;
+    transition:all .8s ease;
+}
+
+.forest-card{
+    background:rgba(255,255,255,0.95);
+    backdrop-filter:blur(10px);
+}
+
+.path{
+    height:12px;
+    background:#d1d5db;
+    border-radius:20px;
+    overflow:hidden;
+}
+
+.progress-fill{
+    height:100%;
+    width:0%;
+    background:linear-gradient(90deg,#f59e0b,#ef4444);
+    transition:1s;
+}
+
+.option:hover{
+    transform:scale(1.03);
+}
+
+.bounce{
+    animation:bounce 1s infinite;
+}
+
+@keyframes bounce{
+    50%{
+        transform:translateY(-10px);
+    }
+}
+</style>
+</head>
+
+<body class="p-4">
+
+<div class="max-w-6xl mx-auto">
+
+<h1 class="text-4xl md:text-5xl font-bold text-center text-white mb-2">
+🌳 Jelajah Hutan Indonesia 🦜
+</h1>
+
+<p class="text-center text-white mb-5">
+Game Edukasi Persebaran Flora dan Fauna Indonesia - Geografi Kelas XI
+</p>
+
+<div class="forest-card rounded-3xl p-6 shadow-2xl">
+
+<div class="flex flex-wrap justify-between items-center gap-3 mb-5">
+
+<div class="bg-yellow-400 px-4 py-2 rounded-full font-bold">
+⭐ Skor : <span id="score">0</span>
+</div>
+
+<div class="bg-blue-500 text-white px-4 py-2 rounded-full font-bold">
+📍 Wilayah : <span id="stageName">Indonesia Barat</span>
+</div>
+
+<button onclick="restartGame()" class="bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded-full font-bold">
+🔄 Restart
+</button>
+
+</div>
+
+<div class="mb-8">
+
+<div class="path">
+<div id="progressFill" class="progress-fill"></div>
+</div>
+
+<div class="flex justify-between mt-2 text-sm font-bold">
+<span>🌿 Barat</span>
+<span>🦎 Tengah</span>
+<span>🦘 Timur</span>
+</div>
+
+</div>
+
+<div class="text-center mb-6">
+<div id="character" class="character bounce">🧑‍🌾</div>
+<p class="font-semibold text-gray-600">
+Penjelajah Hutan Indonesia
+</p>
+</div>
+
+<div id="content"></div>
+
+</div>
+
+</div>
+
+<script>
+
+let score = 0;
+let stage = 0;
+
+const stages = [
+
+{
+name:"Indonesia Barat",
+emoji:"🌿",
+material:`
+<h2 class="text-2xl font-bold text-green-700 mb-3">
+🌿 Zona Flora dan Fauna Indonesia Barat (Asiatis)
+</h2>
+
+<p class="mb-3">
+Wilayah: Sumatra, Jawa, Kalimantan, Bali.
+</p>
+
+<h3 class="font-bold text-lg">Flora Khas:</h3>
+<ul class="list-disc pl-5 mb-3">
+<li>Rafflesia arnoldii</li>
+<li>Bunga Bangkai</li>
+<li>Meranti</li>
+<li>Rotan</li>
+<li>Jati</li>
+</ul>
+
+<h3 class="font-bold text-lg">Fauna Khas:</h3>
+<ul class="list-disc pl-5 mb-3">
+<li>Harimau Sumatra</li>
+<li>Gajah Sumatra</li>
+<li>Badak Jawa</li>
+<li>Orangutan</li>
+<li>Bekantan</li>
+</ul>
+
+<h3 class="font-bold text-lg">Ciri-ciri:</h3>
+<ul class="list-disc pl-5">
+<li>Dipengaruhi benua Asia</li>
+<li>Banyak mamalia besar</li>
+<li>Hutan hujan tropis lebat</li>
+</ul>
+`,
+question:"Hewan khas Indonesia Barat yang hidup di Kalimantan adalah ...",
+answers:[
+"Komodo",
+"Bekantan",
+"Kasuari",
+"Cendrawasih"
+],
+correct:1
+},
+
+{
+name:"Indonesia Tengah",
+emoji:"🦎",
+material:`
+<h2 class="text-2xl font-bold text-orange-600 mb-3">
+🦎 Zona Peralihan (Wallacea)
+</h2>
+
+<p class="mb-3">
+Wilayah: Sulawesi, Nusa Tenggara, Maluku.
+</p>
+
+<h3 class="font-bold text-lg">
+Flora Khas:
+</h3>
+
+<ul class="list-disc pl-5 mb-3">
+<li>Cendana</li>
+<li>Eboni</li>
+<li>Pala</li>
+<li>Cengkeh</li>
+</ul>
+
+<h3 class="font-bold text-lg">
+Fauna Khas:
+</h3>
+
+<ul class="list-disc pl-5 mb-3">
+<li>Komodo</li>
+<li>Anoa</li>
+<li>Babirusa</li>
+<li>Tarsius</li>
+<li>Maleo</li>
+</ul>
+
+<h3 class="font-bold text-lg">
+Ciri-ciri:
+</h3>
+
+<ul class="list-disc pl-5">
+<li>Daerah peralihan Asia dan Australia</li>
+<li>Banyak spesies endemik</li>
+<li>Keanekaragaman tinggi</li>
+</ul>
+`,
+question:"Apa nama kadal terbesar yang menjadi ikon Nusa Tenggara Timur?",
+answers:[
+"Bekantan",
+"Anoa",
+"Komodo",
+"Badak"
+],
+correct:2
+},
+
+{
+name:"Indonesia Timur",
+emoji:"🦘",
+material:`
+<h2 class="text-2xl font-bold text-purple-700 mb-3">
+🦘 Zona Australis
+</h2>
+
+<p class="mb-3">
+Wilayah: Papua dan Kepulauan Aru.
+</p>
+
+<h3 class="font-bold text-lg">
+Flora Khas:
+</h3>
+
+<ul class="list-disc pl-5 mb-3">
+<li>Sagu</li>
+<li>Matoa</li>
+<li>Eukaliptus</li>
+</ul>
+
+<h3 class="font-bold text-lg">
+Fauna Khas:
+</h3>
+
+<ul class="list-disc pl-5 mb-3">
+<li>Cendrawasih</li>
+<li>Kasuari</li>
+<li>Kanguru Pohon</li>
+<li>Kakatua Raja</li>
+</ul>
+
+<h3 class="font-bold text-lg">
+Ciri-ciri:
+</h3>
+
+<ul class="list-disc pl-5">
+<li>Dipengaruhi Australia</li>
+<li>Banyak hewan berkantung</li>
+<li>Burung berwarna indah</li>
+</ul>
+`,
+question:"Burung surga yang menjadi ikon Papua adalah ...",
+answers:[
+"Cenderawasih",
+"Merpati",
+"Elang",
+"Jalak Bali"
+],
+correct:0
+}
+
+];
+
+function renderStage(){
+
+const data = stages[stage];
+
+document.getElementById("stageName").textContent=data.name;
+
+let html=`
+<div class="grid md:grid-cols-2 gap-6">
+
+<div class="bg-green-50 p-5 rounded-2xl border-4 border-green-200">
+${data.material}
+</div>
+
+<div class="bg-blue-50 p-5 rounded-2xl border-4 border-blue-200">
+
+<h2 class="text-2xl font-bold mb-4">
+📝 Tantangan Pemahaman
+</h2>
+
+<p class="font-semibold text-lg mb-4">
+${data.question}
+</p>
+`;
+
+data.answers.forEach((ans,index)=>{
+
+html += `
+<button onclick="checkAnswer(${index})"
+class="option block w-full text-left mb-3 bg-white shadow px-4 py-3 rounded-xl hover:bg-yellow-200 transition">
+${ans}
+</button>
+`;
+
+});
+
+html+=`
+</div>
+</div>
+`;
+
+document.getElementById("content").innerHTML=html;
+
+updateProgress();
+}
+
+function checkAnswer(index){
+
+const current = stages[stage];
+
+if(index===current.correct){
+
+score+=10;
+document.getElementById("score").textContent=score;
+
+alert("✅ Jawaban Benar!");
+
+if(stage < stages.length-1){
+
+stage++;
+
+document.getElementById("character").innerHTML="🚶‍♂️";
+
+setTimeout(()=>{
+document.getElementById("character").innerHTML="🧑‍🌾";
+renderStage();
+},500);
+
+}
+else{
+
+document.getElementById("content").innerHTML=`
+
+<div class="text-center py-10">
+
+<h2 class="text-4xl font-bold text-green-600 mb-4">
+🎉 Selamat!
+</h2>
+
+<p class="text-xl mb-3">
+Kamu berhasil menjelajahi Indonesia dari Barat hingga Timur.
+</p>
+
+<p class="text-2xl font-bold mb-5">
+⭐ Skor Akhir: ${score}
+</p>
+
+<div class="text-7xl mb-4">
+🏆
+</div>
+
+<button onclick="restartGame()"
+class="bg-green-500 hover:bg-green-600 text-white px-8 py-4 rounded-full font-bold">
+Main Lagi
+</button>
+
+</div>
+`;
+
+updateProgress(100);
+
+}
+
+}else{
+
+alert("❌ Jawaban belum tepat. Coba lagi!");
+
+}
+}
+
+function updateProgress(){
+
+let percent = ((stage)/(stages.length))*100;
+
+if(stage===stages.length-1){
+percent=66;
+}
+
+document.getElementById("progressFill").style.width=
+percent+"%";
+
+}
+
+function restartGame(){
+
+score=0;
+stage=0;
+
+document.getElementById("score").textContent=0;
+document.getElementById("progressFill").style.width="0%";
+document.getElementById("character").innerHTML="🧑‍🌾";
+
+renderStage();
+
+}
+
+renderStage();
+
+</script>
+
+</body>
+</html>
