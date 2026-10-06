@@ -4,13 +4,13 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Jelajah Flora & Fauna Indonesia</title>
+<title>Jelajah Flora Fauna Indonesia - Geografi XI</title>
 
 <style>
 
-/* =====================================================
-   DASAR
-===================================================== */
+/* =========================================================
+   GLOBAL
+========================================================= */
 
 *{
     box-sizing:border-box;
@@ -21,23 +21,29 @@
 :root{
     --cream:#FFF9EF;
     --paper:#FFFDF8;
-    --sage:#A8C3A0;
-    --sage-dark:#648568;
-    --green:#789B78;
-    --green-soft:#E5EFE1;
+
+    --sage:#A9C3A1;
+    --sage-dark:#657F63;
+    --sage-soft:#E5EFE1;
+
+    --peach:#DDAE99;
+    --peach-dark:#936D5B;
+    --peach-soft:#F6E4DC;
 
     --blue:#A9C5D1;
-    --blue-soft:#E7F0F3;
+    --blue-dark:#5E7882;
+    --blue-soft:#E4EFF2;
 
-    --peach:#E7B7A0;
-    --peach-soft:#F7E5DC;
+    --yellow:#E6D39A;
+    --yellow-dark:#78683F;
+    --yellow-soft:#F6F0D9;
 
-    --yellow:#E8D59B;
-    --yellow-soft:#F8F1D9;
+    --brown:#766354;
 
-    --brown:#765F4E;
-    --text:#4D5149;
-    --muted:#85877E;
+    --text:#555950;
+    --muted:#888980;
+
+    --border:#E5DED2;
 
     --white:#FFFFFF;
 }
@@ -52,12 +58,13 @@ body{
     background:
         linear-gradient(
             180deg,
-            #EEF3E9 0%,
-            #FFF9EF 45%,
-            #F4EEE5 100%
+            #EDF3E9 0%,
+            #FFF9EF 48%,
+            #F3EDE4 100%
         );
 
     color:var(--text);
+
     min-height:100vh;
 }
 
@@ -65,46 +72,45 @@ button{
     font-family:inherit;
 }
 
+.hidden{
+    display:none !important;
+}
 
-/* =====================================================
-   CONTAINER
-===================================================== */
+
+/* =========================================================
+   APP
+========================================================= */
 
 #app{
     min-height:100vh;
-    padding:18px;
+    padding:15px;
 }
 
 .container{
-    width:100%;
-    max-width:1050px;
+    max-width:1100px;
     margin:auto;
 }
 
 
-/* =====================================================
+/* =========================================================
    HEADER
-===================================================== */
+========================================================= */
 
 .topbar{
-    background:rgba(255,253,248,.94);
+    background:rgba(255,253,248,.96);
 
-    border:
-        1px solid #E7E0D5;
+    border:1px solid var(--border);
 
-    border-radius:20px;
+    border-radius:18px;
 
-    padding:
-        12px 18px;
+    padding:11px 17px;
 
     display:flex;
-    justify-content:space-between;
     align-items:center;
-
-    gap:15px;
+    justify-content:space-between;
 
     box-shadow:
-        0 5px 18px rgba(94,84,70,.08);
+        0 4px 15px rgba(80,70,55,.07);
 }
 
 .brand{
@@ -113,133 +119,164 @@ button{
     gap:10px;
 }
 
-.brand-mark{
-    width:42px;
-    height:42px;
+.brand-icon{
+    width:40px;
+    height:40px;
 
-    border-radius:14px;
+    border-radius:12px;
 
-    background:var(--green-soft);
+    background:var(--sage-soft);
 
     display:flex;
     align-items:center;
     justify-content:center;
 
-    font-size:21px;
+    font-size:20px;
 }
 
-.brand-text{
+.brand-name{
     font-weight:bold;
     color:var(--sage-dark);
 }
 
-.brand-subtitle{
-    font-size:11px;
+.brand-sub{
+    font-size:10px;
     color:var(--muted);
     margin-top:2px;
 }
 
-.score-area{
-    display:flex;
-    align-items:center;
-    gap:8px;
-}
-
-.score-box{
+.score{
     background:var(--yellow-soft);
 
-    border:1px solid #EBDDAD;
+    border:1px solid #E6DDBD;
 
-    border-radius:13px;
+    color:var(--yellow-dark);
 
-    padding:
-        8px 13px;
+    padding:8px 13px;
 
-    font-size:13px;
+    border-radius:12px;
 
-    color:#78683C;
+    font-size:12px;
 
     font-weight:bold;
 }
 
 
-/* =====================================================
-   SCREEN
-===================================================== */
+/* =========================================================
+   COMMON
+========================================================= */
 
 .screen{
-    margin-top:20px;
+    margin-top:18px;
 }
 
-.hidden{
-    display:none !important;
-}
-
-
-/* =====================================================
-   HOME
-===================================================== */
-
-.home{
+.card{
     background:var(--paper);
 
-    border:
-        1px solid #E6DED1;
+    border:1px solid var(--border);
 
-    border-radius:26px;
-
-    overflow:hidden;
+    border-radius:24px;
 
     box-shadow:
-        0 8px 25px rgba(85,74,59,.09);
+        0 7px 23px rgba(80,70,55,.08);
 }
 
-.home-top{
-    min-height:350px;
+.primary{
+    border:none;
 
-    display:grid;
+    background:var(--sage);
 
-    grid-template-columns:
-        1.2fr .8fr;
+    color:white;
 
-    background:
-        linear-gradient(
-            135deg,
-            #E7EFE1,
-            #F8F1DF
-        );
+    padding:12px 23px;
 
-    position:relative;
+    border-radius:12px;
+
+    font-weight:bold;
+
+    cursor:pointer;
+
+    box-shadow:
+        0 3px 0 #708A6C;
+
+    transition:.15s;
 }
 
-.home-content{
-    padding:55px 50px;
+.primary:hover{
+    background:#98B490;
+}
+
+.primary:active{
+    transform:translateY(2px);
+
+    box-shadow:none;
+}
+
+.secondary{
+    border:none;
+
+    background:#F0ECE3;
+
+    color:#6F7169;
+
+    padding:9px 14px;
+
+    border-radius:10px;
+
+    cursor:pointer;
 }
 
 .small-label{
     display:inline-block;
 
-    background:#FFFDF5;
+    background:#FFFDF7;
 
-    border:
-        1px solid #E4D9BF;
+    border:1px solid #E1D7C4;
 
-    color:#7D735B;
+    color:#81755F;
+
+    padding:6px 12px;
 
     border-radius:20px;
 
-    padding:7px 13px;
+    font-size:11px;
 
-    font-size:12px;
+    margin-bottom:16px;
+}
 
-    margin-bottom:18px;
+
+/* =========================================================
+   HOME
+========================================================= */
+
+.home{
+    overflow:hidden;
+}
+
+.home-top{
+    display:grid;
+
+    grid-template-columns:1.15fr .85fr;
+
+    min-height:355px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #E7EFE2,
+            #F8F0DF
+        );
+}
+
+.home-text{
+    padding:52px 45px;
 }
 
 .home-title{
-    color:#5D785D;
-
     font-size:
-        clamp(34px,5vw,54px);
+        clamp(35px,5vw,53px);
+
+    color:#637D61;
 
     line-height:1.05;
 
@@ -247,73 +284,69 @@ button{
 }
 
 .home-title span{
-    color:#B27D64;
+    color:#A97661;
 }
 
 .home-description{
-    max-width:560px;
+    max-width:580px;
+
+    font-size:15px;
 
     line-height:1.7;
 
-    color:#66685F;
-
-    font-size:16px;
+    color:#696B64;
 }
 
-.home-illustration{
+
+/* simple illustration */
+
+.illustration{
     position:relative;
+
+    min-height:300px;
 
     display:flex;
 
-    align-items:center;
-
     justify-content:center;
 
-    min-height:300px;
+    align-items:center;
 }
 
-
-/* Ilustrasi penjelajah sederhana */
-
-.paper-map{
-    width:260px;
-    height:180px;
+.map-sheet{
+    width:245px;
+    height:165px;
 
     background:#FFFDF6;
 
-    border:
-        2px solid #D9CCB9;
+    border:2px solid #D7CDBD;
 
-    border-radius:8px;
+    border-radius:7px;
 
     transform:rotate(-4deg);
 
-    box-shadow:
-        0 10px 20px rgba(80,70,55,.12);
-
     position:relative;
+
+    box-shadow:
+        0 8px 15px rgba(80,70,55,.1);
 }
 
-.paper-map:before{
+.map-sheet:before{
     content:"";
 
     position:absolute;
 
-    width:120px;
-    height:60px;
+    width:125px;
+    height:65px;
 
-    border:
-        2px dashed #AFC3A6;
+    border:2px dashed #B0C3A6;
 
     border-radius:50%;
 
-    left:65px;
-    top:55px;
-
-    transform:rotate(15deg);
+    left:55px;
+    top:47px;
 }
 
-.paper-map:after{
+.map-sheet:after{
     content:"";
 
     position:absolute;
@@ -321,176 +354,170 @@ button{
     width:7px;
     height:7px;
 
-    background:#C7866E;
-
     border-radius:50%;
 
-    left:105px;
-    top:78px;
+    background:#C48770;
+
+    left:100px;
+    top:76px;
 
     box-shadow:
-        45px -20px 0 #91AD91,
-        -35px 25px 0 #A9C5D1;
+        45px -18px 0 #89A684,
+        -30px 25px 0 #A9C5D1;
 }
 
-.explorer-person{
+
+/* character */
+
+.character{
     position:absolute;
 
-    bottom:25px;
+    bottom:20px;
+
     left:50%;
 
-    transform:
-        translateX(-50%);
+    transform:translateX(-50%);
+
+    width:70px;
+    height:125px;
 
     z-index:3;
-
-    width:75px;
-    height:125px;
 }
 
-
-/* kepala */
-
-.head{
-    width:43px;
-    height:43px;
-
-    background:#C98E6D;
+.character-head{
+    width:40px;
+    height:40px;
 
     border-radius:50%;
 
+    background:#C88D6B;
+
+    border:3px solid #725E4E;
+
     position:absolute;
 
-    left:16px;
     top:0;
-
-    border:3px solid #705E50;
+    left:15px;
 }
 
-.head:before{
-    content:"";
-
-    position:absolute;
-
-    width:47px;
+.character-hat{
+    width:48px;
     height:19px;
 
-    background:#71896F;
+    background:#758C71;
 
-    border-radius:
-        50% 50% 25% 25%;
+    border-radius:50% 50% 20% 20%;
 
-    left:-5px;
+    position:absolute;
+
     top:-5px;
+    left:-4px;
 }
 
+.character-body{
+    width:47px;
+    height:57px;
 
-/* badan */
+    border-radius:13px;
 
-.body{
+    background:#799B78;
+
+    border:3px solid #607C60;
+
     position:absolute;
 
-    width:48px;
-    height:58px;
-
-    background:#789B78;
-
-    border-radius:14px 14px 7px 7px;
-
-    left:13px;
     top:39px;
-
-    border:3px solid #607D62;
+    left:11px;
 }
 
-.arm{
-    position:absolute;
+.character-arm{
+    width:13px;
+    height:43px;
 
-    width:14px;
-    height:45px;
-
-    background:#C98E6D;
-
-    border-radius:12px;
-
-    top:47px;
-}
-
-.arm.left{
-    left:5px;
-    transform:rotate(13deg);
-}
-
-.arm.right{
-    right:5px;
-    transform:rotate(-13deg);
-}
-
-.leg{
-    position:absolute;
-
-    width:17px;
-    height:45px;
-
-    background:#665C54;
+    background:#C88D6B;
 
     border-radius:10px;
+
+    position:absolute;
+
+    top:46px;
+}
+
+.character-arm.one{
+    left:3px;
+    transform:rotate(12deg);
+}
+
+.character-arm.two{
+    right:3px;
+    transform:rotate(-12deg);
+}
+
+.character-leg{
+    width:16px;
+    height:43px;
+
+    background:#655B53;
+
+    border-radius:10px;
+
+    position:absolute;
 
     top:91px;
 }
 
-.leg.left{
-    left:20px;
+.character-leg.one{
+    left:19px;
 }
 
-.leg.right{
-    right:20px;
+.character-leg.two{
+    right:19px;
 }
 
 
-/* =====================================================
-   HOME BOTTOM
-===================================================== */
+/* =========================================================
+   HOME FEATURES
+========================================================= */
 
 .home-bottom{
-    padding:30px 40px;
+    padding:28px 35px;
 }
 
-.home-bottom h3{
+.home-bottom-title{
     text-align:center;
 
-    color:#667A65;
+    color:#697B66;
 
-    margin-bottom:18px;
+    margin-bottom:17px;
 
-    font-size:19px;
+    font-size:18px;
 }
 
 .feature-grid{
     display:grid;
 
     grid-template-columns:
-        repeat(3,1fr);
+        repeat(4,1fr);
 
-    gap:14px;
+    gap:12px;
 
     margin-bottom:25px;
 }
 
 .feature{
-    padding:18px;
-
-    border-radius:17px;
-
-    border:1px solid #E6DFD4;
-
     background:#FFFCF6;
+
+    border:1px solid var(--border);
+
+    border-radius:15px;
+
+    padding:16px 12px;
 
     text-align:center;
 }
 
 .feature-icon{
-    font-size:27px;
+    font-size:24px;
 
     margin-bottom:8px;
 }
@@ -498,99 +525,31 @@ button{
 .feature strong{
     display:block;
 
-    color:#687C67;
+    color:#6D7B68;
+
+    font-size:13px;
 
     margin-bottom:5px;
-
-    font-size:14px;
 }
 
 .feature p{
-    font-size:12px;
+    color:#898980;
 
-    color:#85857C;
+    font-size:11px;
 
     line-height:1.5;
 }
 
 
-/* =====================================================
-   BUTTON
-===================================================== */
-
-.primary-button{
-    display:block;
-
-    margin:auto;
-
-    border:none;
-
-    background:#789B78;
-
-    color:white;
-
-    padding:
-        13px 25px;
-
-    border-radius:13px;
-
-    font-weight:bold;
-
-    cursor:pointer;
-
-    box-shadow:
-        0 4px 0 #617F61;
-
-    transition:.15s;
-}
-
-.primary-button:hover{
-    background:#6E916E;
-
-    transform:translateY(-1px);
-}
-
-.primary-button:active{
-    transform:translateY(3px);
-
-    box-shadow:none;
-}
-
-.secondary-button{
-    border:none;
-
-    background:#F0ECE3;
-
-    color:#6F7169;
-
-    padding:
-        9px 14px;
-
-    border-radius:11px;
-
-    cursor:pointer;
-}
-
-
-/* =====================================================
+/* =========================================================
    MAP
-===================================================== */
+========================================================= */
 
 .map-card{
-    background:var(--paper);
-
-    border:
-        1px solid #E5DED3;
-
-    border-radius:25px;
-
-    padding:30px;
-
-    box-shadow:
-        0 8px 25px rgba(85,74,59,.08);
+    padding:28px;
 }
 
-.page-heading{
+.page-title{
     text-align:center;
 
     color:#637961;
@@ -600,75 +559,68 @@ button{
     margin-bottom:6px;
 }
 
-.page-description{
+.page-subtitle{
     text-align:center;
 
-    color:#8A887F;
+    color:#888980;
 
-    font-size:14px;
+    font-size:13px;
 
-    margin-bottom:25px;
+    margin-bottom:23px;
 }
 
 .map-paper{
-    background:
-        linear-gradient(
-            145deg,
-            #F5EEDB,
-            #E7F0E4
-        );
-
-    border:
-        2px solid #DCD4C4;
+    min-height:430px;
 
     border-radius:20px;
 
-    min-height:420px;
+    border:2px solid #DDD5C5;
 
-    padding:35px 25px;
+    background:
+        linear-gradient(
+            140deg,
+            #F6EFDF,
+            #E8F0E4
+        );
 
     position:relative;
 
     overflow:hidden;
+
+    padding:30px 20px;
 }
-
-
-/* garis perjalanan */
 
 .travel-line{
     position:absolute;
 
     top:50%;
 
-    left:13%;
+    left:14%;
 
-    right:13%;
+    right:14%;
 
     border-top:
-        3px dashed #A7B89D;
+        3px dashed #A9B79E;
 }
-
-
-/* titik zona */
 
 .map-zones{
     position:relative;
+
+    z-index:2;
+
+    height:350px;
 
     display:flex;
 
     justify-content:space-between;
 
     align-items:center;
-
-    height:350px;
-
-    z-index:2;
 }
 
 .map-zone{
-    text-align:center;
-
     width:30%;
+
+    text-align:center;
 }
 
 .zone-circle{
@@ -679,259 +631,409 @@ button{
 
     border-radius:50%;
 
+    border:5px solid #FFFDF8;
+
     display:flex;
 
     align-items:center;
 
     justify-content:center;
 
-    font-size:35px;
-
-    border:5px solid #FFFDF8;
+    font-size:33px;
 
     box-shadow:
         0 4px 12px rgba(70,60,45,.1);
 
     cursor:pointer;
 
-    transition:.2s;
+    transition:.15s;
 }
 
 .zone-circle:hover{
-    transform:translateY(-4px);
+    transform:translateY(-3px);
 }
 
-.zone-west{
+.west{
     background:#DCE9D8;
 }
 
-.zone-middle{
-    background:#F2DDD2;
+.middle{
+    background:#F3DDD2;
 }
 
-.zone-east{
+.east{
     background:#D9E8ED;
 }
 
 .map-zone h3{
-    margin-top:13px;
+    color:#667160;
 
-    font-size:16px;
+    margin-top:12px;
 
-    color:#606D5D;
+    font-size:15px;
 }
 
 .map-zone p{
-    margin-top:5px;
+    color:#8B897F;
 
-    font-size:12px;
+    font-size:11px;
 
-    color:#89877D;
+    margin-top:4px;
 }
 
-.zone-status{
+.status{
     display:inline-block;
 
-    margin-top:9px;
-
-    padding:5px 9px;
-
-    border-radius:10px;
+    margin-top:8px;
 
     background:#FFFDF7;
 
-    color:#8A897F;
+    color:#85847A;
+
+    border-radius:9px;
+
+    padding:5px 8px;
 
     font-size:10px;
 }
 
 
-/* =====================================================
-   EXPLORATION
-===================================================== */
+/* =========================================================
+   EXPLORE
+========================================================= */
 
 .explore-card{
-    background:var(--paper);
-
-    border:
-        1px solid #E5DED3;
-
-    border-radius:25px;
-
     overflow:hidden;
-
-    box-shadow:
-        0 8px 25px rgba(85,74,59,.08);
 }
 
 .zone-header{
-    padding:28px 32px;
+    padding:27px 30px;
 
-    border-bottom:
-        1px solid #E6DED2;
+    background:#E8F0E4;
 
-    background:#E9F0E5;
+    border-bottom:1px solid #DFD8CB;
 
     position:relative;
 }
 
-.zone-header.middle{
-    background:#F5E6DF;
+.zone-header.middle-theme{
+    background:#F5E4DB;
 }
 
-.zone-header.east{
+.zone-header.east-theme{
     background:#E4EFF2;
 }
 
 .zone-header h2{
-    color:#63785F;
+    color:#627A60;
 
-    font-size:28px;
+    font-size:27px;
 
-    margin-bottom:7px;
+    margin-bottom:6px;
 }
 
-.zone-header.middle h2{
-    color:#936E5B;
+.zone-header.middle-theme h2{
+    color:#936E5C;
 }
 
-.zone-header.east h2{
-    color:#5D7882;
+.zone-header.east-theme h2{
+    color:#5F7982;
 }
 
 .zone-header p{
-    color:#777A72;
+    color:#767970;
 
-    max-width:700px;
+    max-width:760px;
 
-    line-height:1.6;
+    font-size:13px;
 
-    font-size:14px;
-}
-
-.small-explorer{
-    position:absolute;
-
-    right:35px;
-
-    bottom:15px;
-
-    font-size:40px;
+    line-height:1.65;
 }
 
 .explore-body{
-    padding:28px;
+    padding:25px;
 }
 
-.topic-tabs{
+
+/* =========================================================
+   TOPIC MENU
+========================================================= */
+
+.topic-grid{
     display:grid;
 
     grid-template-columns:
-        repeat(3,1fr);
+        repeat(4,1fr);
 
-    gap:13px;
+    gap:11px;
 
-    margin-bottom:20px;
+    margin-bottom:18px;
 }
 
-.topic-button{
-    border:
-        1px solid #E3DDD3;
+.topic{
+    border:1px solid #E2DDD4;
 
     background:#FFFCF7;
 
-    padding:18px 12px;
+    border-radius:15px;
 
-    border-radius:16px;
+    padding:16px 10px;
 
     cursor:pointer;
 
-    color:#697467;
+    color:#686D64;
 
     transition:.15s;
 }
 
-.topic-button:hover{
-    background:#F2F0E8;
+.topic:hover{
+    background:#F2F3EC;
 
     transform:translateY(-2px);
 }
 
-.topic-button span{
+.topic-icon{
     display:block;
 
-    font-size:25px;
+    font-size:22px;
 
-    margin-bottom:8px;
+    margin-bottom:7px;
 }
 
-.topic-button strong{
-    font-size:14px;
+.topic strong{
+    font-size:12px;
 }
 
 
-/* info */
+/* =========================================================
+   INFO
+========================================================= */
 
-.info-box{
-    min-height:200px;
-
+.info{
     background:#FBF8F0;
 
-    border:
-        1px solid #E6DDCA;
+    border:1px solid #E4DCCA;
 
     border-radius:18px;
 
     padding:22px;
 
-    margin-bottom:22px;
+    min-height:260px;
+
+    margin-bottom:20px;
 }
 
-.info-box h3{
-    color:#776A51;
+.info h3{
+    color:#786A50;
 
     font-size:19px;
 
     margin-bottom:10px;
 }
 
-.info-box p{
-    color:#696B63;
+.info p{
+    color:#676A62;
+
+    font-size:13px;
 
     line-height:1.7;
-
-    font-size:14px;
 }
 
 .info-list{
-    padding-left:22px;
+    padding-left:21px;
 
-    margin-top:13px;
+    margin-top:12px;
 
-    color:#696B63;
+    color:#676A62;
 
-    line-height:1.8;
+    font-size:13px;
+
+    line-height:1.85;
+}
+
+
+/* =========================================================
+   CLIMATE BOX
+========================================================= */
+
+.climate-grid{
+    display:grid;
+
+    grid-template-columns:
+        repeat(2,1fr);
+
+    gap:12px;
+
+    margin-top:15px;
+}
+
+.climate-card{
+    background:#FFFDF8;
+
+    border:1px solid #E4DED4;
+
+    border-radius:13px;
+
+    padding:14px;
+}
+
+.climate-card strong{
+    display:block;
+
+    color:#687965;
+
+    margin-bottom:5px;
+
+    font-size:13px;
+}
+
+.climate-card span{
+    color:#797A72;
+
+    font-size:12px;
+
+    line-height:1.6;
+}
+
+
+/* =========================================================
+   BIOGEOGRAPHY
+========================================================= */
+
+.line-card{
+    margin-top:15px;
+
+    background:#FFFDF7;
+
+    border:1px solid #E1D9CB;
+
+    border-radius:15px;
+
+    padding:17px;
+}
+
+.line-card h4{
+    color:#6D745F;
+
+    margin-bottom:7px;
 
     font-size:14px;
 }
 
+.line-card p{
+    font-size:12px;
 
-/* =====================================================
-   QUIZ
-===================================================== */
+    line-height:1.65;
 
-.quiz-card{
-    background:var(--paper);
+    color:#72736C;
+}
+
+.line-location{
+    display:inline-block;
+
+    margin-top:8px;
+
+    background:#F1ECE1;
+
+    padding:5px 8px;
+
+    border-radius:7px;
+
+    color:#81765F;
+
+    font-size:10px;
+}
+
+
+/* =========================================================
+   VISUAL GARIS
+========================================================= */
+
+.biogeography-map{
+    margin-top:18px;
 
     border:
-        1px solid #E5DED3;
+        1px solid #DDD5C7;
 
-    border-radius:25px;
+    border-radius:15px;
 
-    padding:30px;
+    padding:20px 15px;
 
-    box-shadow:
-        0 8px 25px rgba(85,74,59,.08);
+    background:#F8F3E8;
+}
+
+.bio-row{
+    display:grid;
+
+    grid-template-columns:
+        1fr 1fr 1fr;
+
+    gap:0;
+
+    min-height:150px;
+
+    align-items:center;
+}
+
+.bio-region{
+    min-height:130px;
+
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:center;
+
+    justify-content:center;
+
+    text-align:center;
+
+    padding:10px;
+
+    border-right:1px dashed #BFB5A5;
+}
+
+.bio-region:last-child{
+    border-right:none;
+}
+
+.bio-region strong{
+    font-size:13px;
+
+    color:#656D61;
+
+    margin-bottom:7px;
+}
+
+.bio-region span{
+    font-size:11px;
+
+    color:#89877D;
+
+    line-height:1.5;
+}
+
+.line-label{
+    font-size:10px;
+
+    color:#8D6D5E;
+
+    margin-top:7px;
+
+    background:#F1DED6;
+
+    padding:4px 7px;
+
+    border-radius:7px;
+}
+
+
+/* =========================================================
+   QUIZ
+========================================================= */
+
+.quiz-card{
+    padding:28px;
 }
 
 .quiz-head{
@@ -941,48 +1043,46 @@ button{
 
     align-items:center;
 
-    gap:10px;
-
-    margin-bottom:20px;
+    margin-bottom:17px;
 }
 
 .quiz-label{
-    color:#687E65;
+    background:#E5EFE1;
 
-    background:#E6EFE2;
+    color:#667C63;
 
-    padding:7px 12px;
+    padding:7px 11px;
 
-    border-radius:11px;
+    border-radius:10px;
 
-    font-size:12px;
+    font-size:11px;
 
     font-weight:bold;
 }
 
 .question-count{
-    color:#929188;
+    color:#8B8A82;
 
-    font-size:12px;
+    font-size:11px;
 }
 
 .question{
     background:#FBF7EC;
 
     border-left:
-        4px solid #C7B57A;
+        4px solid #C8B77C;
 
-    padding:22px;
+    padding:20px;
 
-    border-radius:13px;
+    border-radius:12px;
 
-    color:#555B52;
+    color:#555A53;
 
-    font-size:19px;
+    font-size:18px;
 
     line-height:1.6;
 
-    margin-bottom:18px;
+    margin-bottom:17px;
 }
 
 .answers{
@@ -991,26 +1091,25 @@ button{
     grid-template-columns:
         1fr 1fr;
 
-    gap:12px;
+    gap:11px;
 }
 
 .answer{
-    border:
-        1px solid #DFE2D9;
+    border:1px solid #E0E1D9;
 
     background:#FFFDF9;
 
-    color:#5E655C;
+    color:#5E645C;
 
-    padding:15px;
+    padding:14px;
 
-    border-radius:13px;
+    border-radius:12px;
 
     text-align:left;
 
     cursor:pointer;
 
-    font-size:14px;
+    font-size:13px;
 
     transition:.15s;
 }
@@ -1018,11 +1117,11 @@ button{
 .answer:hover{
     background:#F0F4EC;
 
-    border-color:#B8C9B3;
+    border-color:#B6C8B0;
 }
 
 .answer.correct{
-    background:#E0EFDF;
+    background:#E1EFDE;
 
     border-color:#9FBC99;
 
@@ -1030,11 +1129,11 @@ button{
 }
 
 .answer.wrong{
-    background:#F4E0D9;
+    background:#F5E1DA;
 
-    border-color:#D5A895;
+    border-color:#D5A695;
 
-    color:#8C6557;
+    color:#855F52;
 }
 
 .answer:disabled{
@@ -1042,17 +1141,17 @@ button{
 }
 
 .feedback{
-    margin-top:16px;
-
-    padding:15px;
-
-    border-radius:13px;
-
     display:none;
 
-    line-height:1.6;
+    margin-top:14px;
 
-    font-size:13px;
+    padding:14px;
+
+    border-radius:12px;
+
+    font-size:12px;
+
+    line-height:1.6;
 }
 
 .feedback.show{
@@ -1060,19 +1159,19 @@ button{
 }
 
 .feedback.good{
-    background:#E7F1E4;
+    background:#E8F1E4;
 
-    color:#557253;
+    color:#557254;
 }
 
 .feedback.bad{
-    background:#F6E6DF;
+    background:#F5E5DF;
 
-    color:#855E50;
+    color:#835E52;
 }
 
 .next{
-    margin-top:16px;
+    margin-top:15px;
 
     border:none;
 
@@ -1082,7 +1181,7 @@ button{
 
     padding:11px 20px;
 
-    border-radius:11px;
+    border-radius:10px;
 
     cursor:pointer;
 
@@ -1090,106 +1189,94 @@ button{
 }
 
 
-/* =====================================================
+/* =========================================================
    RESULT
-===================================================== */
+========================================================= */
 
-.result-card{
-    background:var(--paper);
-
-    border:
-        1px solid #E5DED3;
-
-    border-radius:25px;
-
-    padding:45px 30px;
+.result{
+    padding:45px 25px;
 
     text-align:center;
-
-    box-shadow:
-        0 8px 25px rgba(85,74,59,.08);
 }
 
-.result-small{
+.result-label{
     color:#8B897F;
 
-    font-size:13px;
+    font-size:11px;
 
-    margin-bottom:8px;
+    margin-bottom:7px;
 }
 
-.result-title{
+.result h2{
     color:#687D65;
 
-    font-size:32px;
+    font-size:30px;
 
     margin-bottom:15px;
 }
 
-.result-score{
-    display:inline-flex;
-
-    align-items:center;
-    justify-content:center;
-
-    width:130px;
-    height:130px;
+.final-score{
+    width:125px;
+    height:125px;
 
     border-radius:50%;
 
     background:#F4EED8;
 
-    border:
-        5px solid #E6D8A8;
+    border:5px solid #E6D8A8;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    margin:10px auto 20px;
+
+    font-size:37px;
 
     color:#796A3F;
 
-    font-size:38px;
-
     font-weight:bold;
-
-    margin:10px 0 20px;
 }
 
 .result-message{
-    max-width:600px;
+    max-width:620px;
 
     margin:auto;
 
-    color:#74766E;
+    color:#74766F;
+
+    font-size:13px;
 
     line-height:1.7;
 
-    font-size:14px;
+    margin-bottom:22px;
 }
 
 
-/* =====================================================
+/* =========================================================
    RESPONSIVE
-===================================================== */
+========================================================= */
 
-@media(max-width:750px){
+@media(max-width:800px){
 
     #app{
-        padding:10px;
+        padding:9px;
     }
 
-    .topbar{
-        border-radius:16px;
-    }
-
-    .brand-text{
-        font-size:13px;
-    }
-
-    .brand-subtitle{
+    .brand-sub{
         display:none;
     }
 
-    .score-box{
-        padding:7px 9px;
+    .brand-name{
+        font-size:13px;
+    }
 
-        font-size:11px;
+    .score{
+        font-size:10px;
+
+        padding:7px 9px;
     }
 
 
@@ -1197,7 +1284,7 @@ button{
         grid-template-columns:1fr;
     }
 
-    .home-content{
+    .home-text{
         padding:35px 25px 15px;
     }
 
@@ -1205,53 +1292,40 @@ button{
         font-size:38px;
     }
 
-    .home-illustration{
-        min-height:230px;
+    .illustration{
+        min-height:220px;
     }
 
-    .paper-map{
-        width:220px;
-        height:145px;
-    }
-
-    .home-bottom{
-        padding:25px 20px;
-    }
 
     .feature-grid{
-        grid-template-columns:1fr;
+        grid-template-columns:1fr 1fr;
     }
 
 
     .map-card{
-        padding:20px 14px;
+        padding:20px 12px;
     }
 
     .map-paper{
         min-height:650px;
-
-        padding:25px 10px;
     }
 
     .travel-line{
         top:10%;
-
         bottom:10%;
-
         left:50%;
-
         right:auto;
 
         border-top:none;
 
         border-left:
-            3px dashed #A7B89D;
+            3px dashed #A9B79E;
     }
 
     .map-zones{
-        height:590px;
-
         flex-direction:column;
+
+        height:590px;
     }
 
     .map-zone{
@@ -1259,21 +1333,34 @@ button{
     }
 
 
-    .zone-header{
-        padding:25px 20px;
+    .topic-grid{
+        grid-template-columns:1fr 1fr;
     }
 
-    .small-explorer{
-        display:none;
-    }
-
-    .explore-body{
-        padding:20px 15px;
-    }
-
-    .topic-tabs{
+    .climate-grid{
         grid-template-columns:1fr;
     }
+
+
+    .bio-row{
+        grid-template-columns:1fr;
+
+        min-height:auto;
+    }
+
+    .bio-region{
+        min-height:105px;
+
+        border-right:none;
+
+        border-bottom:
+            1px dashed #BFB5A5;
+    }
+
+    .bio-region:last-child{
+        border-bottom:none;
+    }
+
 
     .answers{
         grid-template-columns:1fr;
@@ -1283,8 +1370,20 @@ button{
         padding:20px 15px;
     }
 
-    .question{
-        font-size:17px;
+}
+
+@media(max-width:470px){
+
+    .feature-grid{
+        grid-template-columns:1fr;
+    }
+
+    .topic-grid{
+        grid-template-columns:1fr;
+    }
+
+    .home-title{
+        font-size:34px;
     }
 
 }
@@ -1297,926 +1396,1289 @@ button{
 
 <div id="app">
 
-    <!-- =================================================
-         HEADER
-    ================================================== -->
+<div class="container">
 
-    <div class="container">
+<!-- =====================================================
+     HEADER
+====================================================== -->
 
-        <header class="topbar">
+<header class="topbar">
 
-            <div class="brand">
+    <div class="brand">
 
-                <div class="brand-mark">
-                    🌿
-                </div>
+        <div class="brand-icon">
+            🌿
+        </div>
 
-                <div>
-                    <div class="brand-text">
-                        Jelajah Indonesia
-                    </div>
-
-                    <div class="brand-subtitle">
-                        Geografi Kelas XI
-                    </div>
-                </div>
-
+        <div>
+            <div class="brand-name">
+                Jelajah Indonesia
             </div>
 
-            <div class="score-area">
-
-                <div class="score-box">
-                    Nilai: <span id="score">0</span>
-                </div>
-
+            <div class="brand-sub">
+                Geografi Kelas XI
             </div>
-
-        </header>
-
-
-        <!-- =================================================
-             HOME
-        ================================================== -->
-
-        <section
-            id="homeScreen"
-            class="screen"
-        >
-
-            <div class="home">
-
-                <div class="home-top">
-
-                    <div class="home-content">
-
-                        <span class="small-label">
-                            PERJALANAN GEOGRAFI
-                        </span>
-
-                        <h1 class="home-title">
-                            Jelajah Flora<br>
-                            <span>& Fauna Indonesia</span>
-                        </h1>
-
-                        <p class="home-description">
-
-                            Ayo menjadi penjelajah dan ikuti perjalanan
-                            dari Indonesia Barat hingga Indonesia Timur.
-                            Temukan berbagai tumbuhan dan hewan khas
-                            Indonesia sambil menguji pemahamanmu.
-
-                        </p>
-
-                    </div>
-
-
-                    <div class="home-illustration">
-
-                        <div class="paper-map"></div>
-
-                        <div class="explorer-person">
-
-                            <div class="head"></div>
-
-                            <div class="body"></div>
-
-                            <div class="arm left"></div>
-
-                            <div class="arm right"></div>
-
-                            <div class="leg left"></div>
-
-                            <div class="leg right"></div>
-
-                        </div>
-
-                    </div>
-
-                </div>
-
-
-                <div class="home-bottom">
-
-                    <h3>
-                        Dalam perjalanan ini kamu akan menemukan...
-                    </h3>
-
-                    <div class="feature-grid">
-
-                        <div class="feature">
-
-                            <div class="feature-icon">
-                                🌱
-                            </div>
-
-                            <strong>Flora Indonesia</strong>
-
-                            <p>
-                                Mengenal tumbuhan khas
-                                dari berbagai wilayah.
-                            </p>
-
-                        </div>
-
-
-                        <div class="feature">
-
-                            <div class="feature-icon">
-                                🐾
-                            </div>
-
-                            <strong>Fauna Indonesia</strong>
-
-                            <p>
-                                Mengenal hewan Asiatis,
-                                Peralihan dan Australis.
-                            </p>
-
-                        </div>
-
-
-                        <div class="feature">
-
-                            <div class="feature-icon">
-                                🗺️
-                            </div>
-
-                            <strong>Persebaran</strong>
-
-                            <p>
-                                Memahami pembagian wilayah
-                                flora dan fauna Indonesia.
-                            </p>
-
-                        </div>
-
-                    </div>
-
-
-                    <button
-                        class="primary-button"
-                        onclick="startGame()"
-                    >
-                        Mulai Perjalanan
-                    </button>
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-        <!-- =================================================
-             MAP
-        ================================================== -->
-
-        <section
-            id="mapScreen"
-            class="screen hidden"
-        >
-
-            <div class="map-card">
-
-                <h2 class="page-heading">
-                    Peta Perjalanan
-                </h2>
-
-                <p class="page-description">
-                    Perjalanan kita dimulai dari bagian barat Indonesia.
-                </p>
-
-
-                <div class="map-paper">
-
-                    <div class="travel-line"></div>
-
-
-                    <div class="map-zones">
-
-                        <!-- BARAT -->
-
-                        <div class="map-zone">
-
-                            <div
-                                class="zone-circle zone-west"
-                                onclick="openZone(0)"
-                            >
-                                🌳
-                            </div>
-
-                            <h3>
-                                Indonesia Barat
-                            </h3>
-
-                            <p>
-                                Wilayah Asiatis
-                            </p>
-
-                            <span
-                                class="zone-status"
-                                id="status0"
-                            >
-                                Mulai di sini
-                            </span>
-
-                        </div>
-
-
-                        <!-- TENGAH -->
-
-                        <div class="map-zone">
-
-                            <div
-                                class="zone-circle zone-middle"
-                                onclick="openZone(1)"
-                            >
-                                🦎
-                            </div>
-
-                            <h3>
-                                Indonesia Tengah
-                            </h3>
-
-                            <p>
-                                Wilayah Peralihan
-                            </p>
-
-                            <span
-                                class="zone-status"
-                                id="status1"
-                            >
-                                Terkunci
-                            </span>
-
-                        </div>
-
-
-                        <!-- TIMUR -->
-
-                        <div class="map-zone">
-
-                            <div
-                                class="zone-circle zone-east"
-                                onclick="openZone(2)"
-                            >
-                                🦜
-                            </div>
-
-                            <h3>
-                                Indonesia Timur
-                            </h3>
-
-                            <p>
-                                Wilayah Australis
-                            </p>
-
-                            <span
-                                class="zone-status"
-                                id="status2"
-                            >
-                                Terkunci
-                            </span>
-
-                        </div>
-
-                    </div>
-
-                </div>
-
-
-                <div
-                    style="
-                    text-align:center;
-                    margin-top:20px;
-                    "
-                >
-
-                    <button
-                        class="secondary-button"
-                        onclick="backHome()"
-                    >
-                        ← Kembali
-                    </button>
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-        <!-- =================================================
-             EXPLORE
-        ================================================== -->
-
-        <section
-            id="exploreScreen"
-            class="screen hidden"
-        >
-
-            <div class="explore-card">
-
-                <div
-                    id="zoneHeader"
-                    class="zone-header"
-                >
-
-                    <h2 id="zoneTitle">
-                        Indonesia Barat
-                    </h2>
-
-                    <p id="zoneDescription">
-                    </p>
-
-                    <div class="small-explorer">
-                        🧭
-                    </div>
-
-                </div>
-
-
-                <div class="explore-body">
-
-                    <button
-                        class="secondary-button"
-                        onclick="showMap()"
-                        style="margin-bottom:18px;"
-                    >
-                        ← Peta perjalanan
-                    </button>
-
-
-                    <div class="topic-tabs">
-
-                        <button
-                            class="topic-button"
-                            onclick="showTopic('region')"
-                        >
-                            <span>🗺️</span>
-
-                            <strong>
-                                Wilayah
-                            </strong>
-                        </button>
-
-
-                        <button
-                            class="topic-button"
-                            onclick="showTopic('flora')"
-                        >
-                            <span>🌱</span>
-
-                            <strong>
-                                Flora
-                            </strong>
-                        </button>
-
-
-                        <button
-                            class="topic-button"
-                            onclick="showTopic('fauna')"
-                        >
-                            <span>🐾</span>
-
-                            <strong>
-                                Fauna
-                            </strong>
-                        </button>
-
-                    </div>
-
-
-                    <div
-                        id="infoBox"
-                        class="info-box"
-                    >
-
-                        <h3>
-                            Catatan Penjelajah
-                        </h3>
-
-                        <p>
-                            Pilih salah satu bagian di atas untuk
-                            membaca informasi mengenai flora,
-                            fauna, atau pembagian wilayah.
-                        </p>
-
-                    </div>
-
-
-                    <button
-                        class="primary-button"
-                        onclick="startQuiz()"
-                    >
-                        Lanjut ke Tantangan
-                    </button>
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-        <!-- =================================================
-             QUIZ
-        ================================================== -->
-
-        <section
-            id="quizScreen"
-            class="screen hidden"
-        >
-
-            <div class="quiz-card">
-
-                <div class="quiz-head">
-
-                    <div class="quiz-label">
-                        Tantangan Penjelajah
-                    </div>
-
-                    <div class="question-count">
-                        Soal
-                        <span id="questionNumber">
-                            1
-                        </span>
-                        /
-                        <span id="totalQuestion">
-                            3
-                        </span>
-                    </div>
-
-                </div>
-
-
-                <div
-                    id="question"
-                    class="question"
-                >
-                </div>
-
-
-                <div
-                    id="answers"
-                    class="answers"
-                >
-                </div>
-
-
-                <div
-                    id="feedback"
-                    class="feedback"
-                >
-                </div>
-
-
-                <button
-                    id="nextButton"
-                    class="next hidden"
-                    onclick="nextQuestion()"
-                >
-                    Lanjut →
-                </button>
-
-            </div>
-
-        </section>
-
-
-        <!-- =================================================
-             RESULT
-        ================================================== -->
-
-        <section
-            id="resultScreen"
-            class="screen hidden"
-        >
-
-            <div class="result-card">
-
-                <div class="result-small">
-                    PERJALANAN SELESAI
-                </div>
-
-                <h2 class="result-title">
-                    Catatan Ekspedisi
-                </h2>
-
-
-                <div class="result-score">
-
-                    <span id="finalScore">
-                        0
-                    </span>
-
-                </div>
-
-
-                <p
-                    id="resultMessage"
-                    class="result-message"
-                >
-                </p>
-
-
-                <br>
-
-
-                <button
-                    class="primary-button"
-                    onclick="restartGame()"
-                >
-                    Ulangi Perjalanan
-                </button>
-
-            </div>
-
-        </section>
+        </div>
 
     </div>
+
+    <div class="score">
+        Nilai: <span id="score">0</span>
+    </div>
+
+</header>
+
+
+<!-- =====================================================
+     HOME
+====================================================== -->
+
+<section
+    id="homeScreen"
+    class="screen"
+>
+
+<div class="card home">
+
+    <div class="home-top">
+
+        <div class="home-text">
+
+            <span class="small-label">
+                EKSPEDISI GEOGRAFI
+            </span>
+
+            <h1 class="home-title">
+
+                Jelajah Flora
+                <br>
+
+                <span>
+                    & Fauna Indonesia
+                </span>
+
+            </h1>
+
+            <p class="home-description">
+
+                Ikuti perjalanan dari Indonesia Barat,
+                melewati wilayah Peralihan, hingga Indonesia Timur.
+                Pelajari iklim, vegetasi, flora, fauna,
+                serta garis Wallace, Weber dan Lydekker.
+
+            </p>
+
+        </div>
+
+
+        <div class="illustration">
+
+            <div class="map-sheet"></div>
+
+            <div class="character">
+
+                <div class="character-head">
+                    <div class="character-hat"></div>
+                </div>
+
+                <div class="character-body"></div>
+
+                <div class="character-arm one"></div>
+
+                <div class="character-arm two"></div>
+
+                <div class="character-leg one"></div>
+
+                <div class="character-leg two"></div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div class="home-bottom">
+
+        <h3 class="home-bottom-title">
+            Yang akan kamu pelajari
+        </h3>
+
+        <div class="feature-grid">
+
+            <div class="feature">
+
+                <div class="feature-icon">
+                    🌦️
+                </div>
+
+                <strong>
+                    Iklim
+                </strong>
+
+                <p>
+                    Mengenal Af, Am, Aw dan
+                    hubungannya dengan vegetasi.
+                </p>
+
+            </div>
+
+
+            <div class="feature">
+
+                <div class="feature-icon">
+                    🌳
+                </div>
+
+                <strong>
+                    Flora
+                </strong>
+
+                <p>
+                    Mengenal vegetasi dan
+                    tumbuhan khas setiap wilayah.
+                </p>
+
+            </div>
+
+
+            <div class="feature">
+
+                <div class="feature-icon">
+                    🐾
+                </div>
+
+                <strong>
+                    Fauna
+                </strong>
+
+                <p>
+                    Mengenal Asiatis,
+                    Peralihan dan Australis.
+                </p>
+
+            </div>
+
+
+            <div class="feature">
+
+                <div class="feature-icon">
+                    🗺️
+                </div>
+
+                <strong>
+                    Garis Biogeografi
+                </strong>
+
+                <p>
+                    Wallace, Weber dan
+                    Lydekker.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <button
+            class="primary"
+            onclick="startGame()"
+        >
+            Mulai Perjalanan
+        </button>
+
+    </div>
+
+</div>
+
+</section>
+
+
+<!-- =====================================================
+     MAP
+====================================================== -->
+
+<section
+    id="mapScreen"
+    class="screen hidden"
+>
+
+<div class="card map-card">
+
+    <h2 class="page-title">
+        Peta Perjalanan
+    </h2>
+
+    <p class="page-subtitle">
+        Perjalanan dimulai dari barat dan bergerak menuju timur.
+    </p>
+
+
+    <div class="map-paper">
+
+        <div class="travel-line"></div>
+
+        <div class="map-zones">
+
+
+            <!-- BARAT -->
+
+            <div class="map-zone">
+
+                <div
+                    class="zone-circle west"
+                    onclick="openZone(0)"
+                >
+                    🌳
+                </div>
+
+                <h3>
+                    Indonesia Barat
+                </h3>
+
+                <p>
+                    Asiatis
+                </p>
+
+                <span
+                    class="status"
+                    id="status0"
+                >
+                    Mulai
+                </span>
+
+            </div>
+
+
+            <!-- TENGAH -->
+
+            <div class="map-zone">
+
+                <div
+                    class="zone-circle middle"
+                    onclick="openZone(1)"
+                >
+                    🦎
+                </div>
+
+                <h3>
+                    Indonesia Tengah
+                </h3>
+
+                <p>
+                    Peralihan
+                </p>
+
+                <span
+                    class="status"
+                    id="status1"
+                >
+                    Terkunci
+                </span>
+
+            </div>
+
+
+            <!-- TIMUR -->
+
+            <div class="map-zone">
+
+                <div
+                    class="zone-circle east"
+                    onclick="openZone(2)"
+                >
+                    🦜
+                </div>
+
+                <h3>
+                    Indonesia Timur
+                </h3>
+
+                <p>
+                    Australis
+                </p>
+
+                <span
+                    class="status"
+                    id="status2"
+                >
+                    Terkunci
+                </span>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+
+    <div
+        style="
+        text-align:center;
+        margin-top:20px;
+        "
+    >
+
+        <button
+            class="secondary"
+            onclick="backHome()"
+        >
+            ← Kembali
+        </button>
+
+    </div>
+
+</div>
+
+</section>
+
+
+<!-- =====================================================
+     EXPLORE
+====================================================== -->
+
+<section
+    id="exploreScreen"
+    class="screen hidden"
+>
+
+<div class="card explore-card">
+
+    <div
+        id="zoneHeader"
+        class="zone-header"
+    >
+
+        <h2 id="zoneTitle">
+            Indonesia Barat
+        </h2>
+
+        <p id="zoneDescription">
+        </p>
+
+    </div>
+
+
+    <div class="explore-body">
+
+        <button
+            class="secondary"
+            onclick="showMap()"
+            style="margin-bottom:17px;"
+        >
+            ← Peta perjalanan
+        </button>
+
+
+        <div class="topic-grid">
+
+
+            <button
+                class="topic"
+                onclick="showTopic('overview')"
+            >
+
+                <span class="topic-icon">
+                    🧭
+                </span>
+
+                <strong>
+                    Karakter Wilayah
+                </strong>
+
+            </button>
+
+
+            <button
+                class="topic"
+                onclick="showTopic('climate')"
+            >
+
+                <span class="topic-icon">
+                    🌦️
+                </span>
+
+                <strong>
+                    Iklim & Hutan
+                </strong>
+
+            </button>
+
+
+            <button
+                class="topic"
+                onclick="showTopic('flora')"
+            >
+
+                <span class="topic-icon">
+                    🌱
+                </span>
+
+                <strong>
+                    Flora
+                </strong>
+
+            </button>
+
+
+            <button
+                class="topic"
+                onclick="showTopic('fauna')"
+            >
+
+                <span class="topic-icon">
+                    🐾
+                </span>
+
+                <strong>
+                    Fauna
+                </strong>
+
+            </button>
+
+
+            <button
+                class="topic"
+                onclick="showTopic('lines')"
+            >
+
+                <span class="topic-icon">
+                    ┈
+                </span>
+
+                <strong>
+                    Garis Biogeografi
+                </strong>
+
+            </button>
+
+
+            <button
+                class="topic"
+                onclick="showTopic('terms')"
+            >
+
+                <span class="topic-icon">
+                    📖
+                </span>
+
+                <strong>
+                    Istilah Penting
+                </strong>
+
+            </button>
+
+
+        </div>
+
+
+        <div
+            id="info"
+            class="info"
+        >
+
+            <h3>
+                Catatan Penjelajah
+            </h3>
+
+            <p>
+                Pilih salah satu catatan di atas.
+                Kamu dapat mempelajari karakter wilayah,
+                iklim, hutan, flora, fauna dan garis
+                biogeografi.
+            </p>
+
+        </div>
+
+
+        <button
+            class="primary"
+            onclick="startQuiz()"
+        >
+            Lanjut ke Tantangan
+        </button>
+
+    </div>
+
+</div>
+
+</section>
+
+
+<!-- =====================================================
+     QUIZ
+====================================================== -->
+
+<section
+    id="quizScreen"
+    class="screen hidden"
+>
+
+<div class="card quiz-card">
+
+    <div class="quiz-head">
+
+        <div class="quiz-label">
+            Tantangan Penjelajah
+        </div>
+
+        <div class="question-count">
+
+            Soal
+            <span id="questionNumber">
+                1
+            </span>
+
+            /
+
+            <span id="totalQuestion">
+                3
+            </span>
+
+        </div>
+
+    </div>
+
+
+    <div
+        id="question"
+        class="question"
+    >
+    </div>
+
+
+    <div
+        id="answers"
+        class="answers"
+    >
+    </div>
+
+
+    <div
+        id="feedback"
+        class="feedback"
+    >
+    </div>
+
+
+    <button
+        id="nextButton"
+        class="next hidden"
+        onclick="nextQuestion()"
+    >
+        Lanjut →
+    </button>
+
+</div>
+
+</section>
+
+
+<!-- =====================================================
+     RESULT
+====================================================== -->
+
+<section
+    id="resultScreen"
+    class="screen hidden"
+>
+
+<div class="card result">
+
+    <div class="result-label">
+        EKSPEDISI SELESAI
+    </div>
+
+    <h2>
+        Catatan Perjalanan
+    </h2>
+
+    <div
+        class="final-score"
+        id="finalScore"
+    >
+        0
+    </div>
+
+    <p
+        id="resultMessage"
+        class="result-message"
+    >
+    </p>
+
+    <button
+        class="primary"
+        onclick="restartGame()"
+    >
+        Ulangi Perjalanan
+    </button>
+
+</div>
+
+</section>
+
+
+</div>
 
 </div>
 
 
 <script>
 
-/* =====================================================
-   DATA WILAYAH
-===================================================== */
+/* =========================================================
+   DATA MATERI
+========================================================= */
 
 const zones = [
 
-    {
-        name:"Indonesia Barat",
+/* =====================================================
+   INDONESIA BARAT
+===================================================== */
 
-        type:"Wilayah Asiatis",
+{
+    name:"Indonesia Barat",
 
-        description:
-        "Perjalanan pertama membawa kita ke Indonesia bagian barat. Wilayah ini memiliki banyak flora dan fauna yang memiliki kemiripan dengan kawasan Asia.",
+    type:"Wilayah Asiatis",
 
-        theme:"west",
+    theme:"west",
 
-        region:{
-            title:"Pembagian Wilayah",
+    description:
+    "Wilayah Indonesia Barat merupakan kawasan yang flora dan faunanya memiliki hubungan biogeografis kuat dengan Asia. Kawasan ini berada di sebelah barat Garis Wallace.",
 
-            text:
-            "Indonesia Barat merupakan wilayah fauna Asiatis. Wilayah ini berada di sebelah barat Garis Wallace dan meliputi Sumatra, Jawa, Kalimantan dan Bali.",
+    overview:{
 
-            list:[
-                "Sumatra",
-                "Jawa",
-                "Kalimantan",
-                "Bali",
-                "Fauna memiliki kemiripan dengan fauna Asia.",
-                "Banyak ditemukan mamalia berukuran besar."
-            ]
-        },
+        title:"Karakteristik Indonesia Barat",
 
-        flora:{
-            title:"Flora Indonesia Barat",
+        text:
+        "Indonesia Barat umumnya mencakup Sumatra, Jawa, Kalimantan dan Bali. Kawasan ini berada pada Paparan Sunda dan memiliki banyak karakteristik biota Asiatis.",
 
-            text:
-            "Wilayah Indonesia Barat memiliki hutan hujan tropis dengan keanekaragaman tumbuhan yang tinggi.",
-
-            list:[
-                "Meranti",
-                "Rotan",
-                "Damar",
-                "Rafflesia arnoldii",
-                "Bunga bangkai",
-                "Ulin"
-            ]
-        },
-
-        fauna:{
-            title:"Fauna Indonesia Barat",
-
-            text:
-            "Fauna wilayah Asiatis banyak memiliki mamalia besar dan primata.",
-
-            list:[
-                "Orangutan",
-                "Harimau Sumatra",
-                "Gajah Sumatra",
-                "Badak Jawa",
-                "Bekantan",
-                "Rusa"
-            ]
-        }
+        list:[
+            "Wilayah utama: Sumatra, Jawa, Kalimantan dan Bali.",
+            "Fauna disebut fauna Asiatis atau Oriental.",
+            "Banyak ditemukan mamalia besar dan primata.",
+            "Vegetasi hutan hujan tropis sangat berkembang di wilayah yang lembap.",
+            "Kondisi iklim dan relief menyebabkan terdapat pula hutan musim serta vegetasi lain di bagian tertentu."
+        ]
     },
 
 
-    {
-        name:"Indonesia Tengah",
+    climate:{
 
-        type:"Wilayah Peralihan",
+        title:"Iklim dan Vegetasi Indonesia Barat",
 
-        description:
-        "Kita memasuki wilayah peralihan. Wilayah ini mempunyai fauna khas yang berbeda dari wilayah Asiatis maupun Australis.",
+        text:
+        "Indonesia Barat memiliki banyak wilayah yang lembap sepanjang tahun. Sumatra, Kalimantan dan sebagian wilayah Jawa bagian barat merupakan contoh kawasan yang memiliki hutan hujan tropis. Namun, tidak semua tempat di Indonesia Barat memiliki tipe Köppen yang sama.",
 
-        theme:"middle",
+        climateCards:[
+            {
+                title:"Af — Hutan Hujan Tropis",
+                text:
+                "Suhu bulan terdingin lebih dari 18°C dan curah hujan bulan terkering tetap tinggi, lebih dari 60 mm. Tidak terdapat musim kering yang nyata."
+            },
 
-        region:{
-            title:"Pembagian Wilayah",
+            {
+                title:"Am — Monsun Tropis",
+                text:
+                "Masih memiliki curah hujan tinggi, tetapi terdapat periode yang lebih kering karena pengaruh muson."
+            },
 
-            text:
-            "Wilayah Indonesia Tengah dikenal sebagai wilayah peralihan. Kawasannya antara lain Sulawesi, Nusa Tenggara dan sebagian Maluku.",
+            {
+                title:"Vegetasi",
+                text:
+                "Hutan hujan tropis memiliki pohon tinggi, tajuk bertingkat, kelembapan tinggi, dan keanekaragaman hayati yang besar."
+            },
 
-            list:[
-                "Sulawesi",
-                "Nusa Tenggara",
-                "Sebagian Maluku",
-                "Banyak memiliki spesies endemik.",
-                "Berada di antara kawasan Asiatis dan Australis."
-            ]
-        },
-
-        flora:{
-            title:"Flora Indonesia Tengah",
-
-            text:
-            "Kondisi lingkungan yang beragam menyebabkan wilayah peralihan memiliki flora yang khas.",
-
-            list:[
-                "Cendana",
-                "Lontar",
-                "Eboni",
-                "Pala",
-                "Cengkih",
-                "Kayu putih"
-            ]
-        },
-
-        fauna:{
-            title:"Fauna Indonesia Tengah",
-
-            text:
-            "Wilayah ini terkenal dengan fauna endemik seperti komodo dan anoa.",
-
-            list:[
-                "Komodo",
-                "Anoa",
-                "Babirusa",
-                "Maleo",
-                "Tarsius"
-            ]
-        }
+            {
+                title:"Ciri Hutan",
+                text:
+                "Pohon relatif tinggi, kanopi rapat, banyak tumbuhan bawah, liana dan epifit, serta lantai hutan relatif lembap."
+            }
+        ]
     },
 
 
-    {
-        name:"Indonesia Timur",
+    flora:{
 
-        type:"Wilayah Australis",
+        title:"Flora Indonesia Barat",
 
-        description:
-        "Perjalanan terakhir membawa kita ke Indonesia Timur. Wilayah ini memiliki karakteristik fauna yang memiliki hubungan dengan kawasan Australia.",
+        text:
+        "Flora Indonesia Barat banyak memperlihatkan karakter flora Asiatis. Hutan hujan tropis menjadi vegetasi penting terutama pada wilayah yang memiliki curah hujan tinggi.",
 
-        theme:"east",
+        list:[
+            "Meranti — banyak ditemukan pada hutan hujan tropis.",
+            "Rotan — tumbuhan memanjat yang banyak dimanfaatkan.",
+            "Damar — menghasilkan resin dan ditemukan di hutan tropis.",
+            "Rafflesia arnoldii — tumbuhan parasit yang terkenal dari Sumatra.",
+            "Ulin — kayu keras yang dikenal dari Kalimantan.",
+            "Jati — banyak dikembangkan terutama di wilayah yang memiliki musim kering."
+        ]
+    },
 
-        region:{
-            title:"Pembagian Wilayah",
 
-            text:
-            "Wilayah Indonesia Timur termasuk kawasan fauna Australis. Papua dan Kepulauan Aru merupakan wilayah penting dalam kawasan ini.",
+    fauna:{
 
-            list:[
-                "Papua",
-                "Kepulauan Aru",
-                "Memiliki karakteristik Australis.",
-                "Banyak burung dengan warna mencolok.",
-                "Ditemukan beberapa mamalia berkantung."
-            ]
-        },
+        title:"Fauna Indonesia Barat — Asiatis",
 
-        flora:{
-            title:"Flora Indonesia Timur",
+        text:
+        "Fauna Asiatis memiliki kemiripan dengan fauna daratan Asia. Ciri yang sering digunakan dalam pembelajaran adalah banyaknya mamalia berukuran besar dan primata.",
 
-            text:
-            "Flora wilayah timur mempunyai karakteristik yang berbeda dengan wilayah barat dan memiliki hubungan dengan flora Australia.",
+        list:[
+            "Orangutan — Sumatra dan Kalimantan.",
+            "Harimau Sumatra — Sumatra.",
+            "Gajah Sumatra — Sumatra.",
+            "Badak Jawa — Jawa.",
+            "Bekantan — Kalimantan.",
+            "Banteng — Jawa dan beberapa wilayah lain.",
+            "Rusa — berbagai wilayah Indonesia Barat."
+        ],
 
-            list:[
-                "Sagu",
-                "Matoa",
-                "Merbau",
-                "Eukaliptus",
-                "Buah merah",
-                "Kayu putih"
-            ]
-        },
+        characteristics:[
+            "Banyak mamalia berukuran relatif besar.",
+            "Banyak ditemukan primata.",
+            "Terdapat karnivora seperti harimau.",
+            "Memiliki kemiripan dengan fauna kawasan Asia.",
+            "Tidak didominasi mamalia berkantung seperti kawasan Australis."
+        ]
+    },
 
-        fauna:{
-            title:"Fauna Indonesia Timur",
 
-            text:
-            "Fauna Australis Indonesia memiliki banyak burung endemik dan beberapa mamalia berkantung.",
+    lines:{
 
-            list:[
-                "Cenderawasih",
-                "Kasuari",
-                "Kanguru pohon",
-                "Walabi",
-                "Kakatua raja",
-                "Ekidna"
-            ]
-        }
+        title:"Garis Wallace dan Batas Indonesia Barat",
+
+        text:
+        "Garis Wallace merupakan garis imajiner penting dalam biogeografi Indonesia. Secara sederhana dalam pembelajaran sekolah, garis ini digunakan untuk menjelaskan batas antara kawasan fauna Asiatis di barat dengan kawasan Wallacea di timurnya.",
+
+        lines:[
+            {
+                title:"Garis Wallace",
+                text:
+                "Garis imajiner yang menjadi batas penting antara kawasan Asiatis dan Wallacea. Jalurnya melewati sekitar Selat Lombok dan antara Kalimantan–Sulawesi.",
+                location:"Barat Wallace = Asiatis"
+            }
+        ]
+    },
+
+
+    terms:{
+
+        title:"Istilah Penting",
+
+        list:[
+            "<strong>Asiatis / Oriental</strong> — istilah untuk fauna yang memiliki hubungan biogeografis dengan kawasan Asia.",
+            "<strong>Garis Wallace</strong> — batas biogeografi penting antara Indonesia Barat dan Wallacea.",
+            "<strong>Paparan Sunda</strong> — landas kontinen dangkal yang secara geologis menghubungkan wilayah Indonesia Barat dengan Asia pada masa tertentu.",
+            "<strong>Endemik</strong> — organisme yang persebaran alaminya terbatas pada wilayah tertentu."
+        ]
     }
+
+},
+
+
+/* =====================================================
+   INDONESIA TENGAH
+===================================================== */
+
+{
+    name:"Indonesia Tengah",
+
+    type:"Wilayah Peralihan / Wallacea",
+
+    theme:"middle",
+
+    description:
+    "Indonesia Tengah dikenal sebagai kawasan peralihan atau Wallacea. Faunanya mempunyai kombinasi karakteristik yang berbeda dari kawasan Asiatis dan Australis serta memiliki banyak spesies endemik.",
+
+    overview:{
+
+        title:"Karakteristik Indonesia Tengah",
+
+        text:
+        "Kawasan Wallacea merupakan kawasan peralihan antara kawasan Asiatis dan Australis. Wilayah ini memiliki sejarah geologi dan biogeografi yang kompleks.",
+
+        list:[
+            "Meliputi terutama Sulawesi, Nusa Tenggara dan sebagian Maluku.",
+            "Memiliki banyak fauna endemik.",
+            "Fauna tidak sama persis dengan fauna Asiatis maupun Australis.",
+            "Banyak pulau dipisahkan oleh laut dalam sehingga penyebaran organisme terbatas.",
+            "Kawasan ini dikenal sebagai Wallacea."
+        ]
+    },
+
+
+    climate:{
+
+        title:"Iklim dan Vegetasi Indonesia Tengah",
+
+        text:
+        "Indonesia Tengah mempunyai kondisi iklim yang lebih beragam. Beberapa wilayah memiliki musim kering yang lebih jelas karena pengaruh muson dan posisi relatif terhadap Australia.",
+
+        climateCards:[
+            {
+                title:"Am — Monsun Tropis",
+                text:
+                "Memiliki musim hujan yang kuat dan periode lebih kering. Vegetasi tetap dapat sangat lebat pada lokasi dengan kelembapan cukup."
+            },
+
+            {
+                title:"Aw — Savana Tropis",
+                text:
+                "Memiliki musim kering yang lebih nyata. Vegetasi alami dapat berkembang menjadi padang rumput atau savana dengan pepohonan yang lebih jarang."
+            },
+
+            {
+                title:"Hutan Musim",
+                text:
+                "Pada wilayah yang memiliki periode kering, sebagian tumbuhan dapat menggugurkan daun untuk mengurangi kehilangan air."
+            },
+
+            {
+                title:"Savana",
+                text:
+                "Ciri utama berupa dominasi rumput dengan pepohonan yang tersebar. Contohnya banyak dijumpai di Nusa Tenggara."
+            }
+        ]
+    },
+
+
+    flora:{
+
+        title:"Flora Indonesia Tengah",
+
+        text:
+        "Flora wilayah peralihan memiliki karakteristik yang beragam. Wilayah yang lebih kering dapat memiliki hutan musim dan savana, sementara wilayah yang lebih basah dapat memiliki hutan tropis.",
+
+        list:[
+            "Cendana — Nusa Tenggara.",
+            "Lontar — banyak dijumpai di kawasan Nusa Tenggara.",
+            "Eboni — Sulawesi.",
+            "Pala — Maluku.",
+            "Cengkih — Maluku.",
+            "Kayu putih — terdapat di berbagai wilayah Indonesia bagian timur dan tengah."
+        ]
+    },
+
+
+    fauna:{
+
+        title:"Fauna Indonesia Tengah — Peralihan",
+
+        text:
+        "Fauna peralihan sering disebut fauna Wallacea. Salah satu ciri pentingnya adalah tingginya endemisme.",
+
+        list:[
+            "Komodo — Nusa Tenggara.",
+            "Anoa — Sulawesi.",
+            "Babirusa — Sulawesi.",
+            "Maleo — Sulawesi.",
+            "Tarsius — Sulawesi.",
+            "Kuskus — beberapa wilayah Wallacea."
+        ],
+
+        characteristics:[
+            "Banyak spesies endemik.",
+            "Memiliki karakter yang berbeda dari fauna Asiatis dan Australis.",
+            "Tidak didominasi mamalia besar seperti Indonesia Barat.",
+            "Terdapat banyak jenis burung dan reptil khas.",
+            "Contoh terkenal: komodo, anoa, babirusa dan maleo."
+        ]
+    },
+
+
+    lines:{
+
+        title:"Garis Wallace, Weber dan Lydekker",
+
+        text:
+        "Kawasan Wallacea dapat dipahami dengan tiga garis biogeografi penting. Garis-garis ini merupakan garis imajiner yang membantu menjelaskan pola persebaran organisme.",
+
+        lines:[
+            {
+                title:"Garis Wallace",
+                text:
+                "Menjadi batas penting antara kawasan Asiatis di barat dan Wallacea di sebelah timurnya.",
+                location:"Sekitar Bali–Lombok dan Kalimantan–Sulawesi"
+            },
+
+            {
+                title:"Garis Weber",
+                text:
+                "Dalam konsep klasik, garis Weber berada di kawasan peralihan dan digunakan sebagai garis keseimbangan unsur fauna Asiatis dan Australis.",
+                location:"Kawasan tengah Wallacea"
+            },
+
+            {
+                title:"Garis Lydekker",
+                text:
+                "Garis yang digunakan untuk menandai batas Wallacea dengan kawasan Sahul/Australis di bagian timur.",
+                location:"Sekitar batas Maluku–Papua dan tepi Paparan Sahul"
+            }
+        ]
+    },
+
+
+    terms:{
+
+        title:"Istilah Penting",
+
+        list:[
+            "<strong>Wallacea</strong> — kawasan biogeografi peralihan antara Asiatis dan Australis.",
+            "<strong>Fauna Peralihan</strong> — fauna khas Wallacea dengan banyak jenis endemik.",
+            "<strong>Endemisme</strong> — keadaan ketika suatu spesies memiliki persebaran alami yang terbatas pada wilayah tertentu.",
+            "<strong>Garis Weber</strong> — garis keseimbangan persebaran unsur fauna Asiatis dan Australis dalam konsep biogeografi klasik.",
+            "<strong>Hutan musim</strong> — hutan yang dipengaruhi musim kering dan pada sebagian jenis tumbuhan dapat terjadi pengguguran daun.",
+            "<strong>Savana</strong> — padang rumput dengan pepohonan yang tersebar dan umumnya berkaitan dengan kondisi yang lebih kering."
+        ]
+    }
+
+},
+
+
+/* =====================================================
+   INDONESIA TIMUR
+===================================================== */
+
+{
+    name:"Indonesia Timur",
+
+    type:"Wilayah Australis",
+
+    theme:"east",
+
+    description:
+    "Indonesia Timur terutama Papua dan Kepulauan Aru mempunyai hubungan biogeografis dengan kawasan Australis dan Paparan Sahul.",
+
+    overview:{
+
+        title:"Karakteristik Indonesia Timur",
+
+        text:
+        "Indonesia Timur memiliki banyak kesamaan biogeografis dengan kawasan Australia-Papua. Kondisi geologi dan sejarah Paparan Sahul membantu menjelaskan persebaran berbagai organisme di kawasan ini.",
+
+        list:[
+            "Papua dan Kepulauan Aru merupakan bagian penting kawasan Australis Indonesia.",
+            "Memiliki banyak spesies endemik.",
+            "Banyak burung dengan warna mencolok.",
+            "Terdapat mamalia berkantung.",
+            "Kawasan Papua mempunyai pegunungan tinggi hingga dataran rendah dan pesisir sehingga vegetasinya sangat beragam."
+        ]
+    },
+
+
+    climate:{
+
+        title:"Iklim dan Vegetasi Indonesia Timur",
+
+        text:
+        "Indonesia Timur tidak mempunyai satu tipe iklim saja. Papua bagian tertentu sangat basah dan mendukung hutan hujan tropis, sementara kawasan yang dipengaruhi musim kering dapat memiliki savana atau vegetasi yang lebih terbuka.",
+
+        climateCards:[
+            {
+                title:"Af — Hutan Hujan Tropis",
+                text:
+                "Pada wilayah yang sangat basah, curah hujan berlangsung tinggi sepanjang tahun sehingga mendukung hutan hujan tropis yang lebat."
+            },
+
+            {
+                title:"Am — Monsun Tropis",
+                text:
+                "Wilayah dengan pola muson dapat mengalami periode yang lebih kering, tetapi curah hujan total masih cukup tinggi."
+            },
+
+            {
+                title:"Aw — Savana Tropis",
+                text:
+                "Wilayah yang lebih kering memiliki musim kering lebih jelas dan dapat mendukung savana atau padang rumput."
+            },
+
+            {
+                title:"Vegetasi Papua",
+                text:
+                "Papua memiliki keragaman vegetasi dari hutan hujan dataran rendah hingga vegetasi pegunungan karena perbedaan ketinggian dan kondisi lingkungan."
+            }
+        ]
+    },
+
+
+    flora:{
+
+        title:"Flora Indonesia Timur",
+
+        text:
+        "Flora Indonesia Timur memiliki kekhasan yang berkaitan dengan kawasan Australis dan kondisi lingkungan Papua serta pulau-pulau sekitarnya.",
+
+        list:[
+            "Sagu — tumbuhan pangan penting di Papua.",
+            "Matoa — tumbuhan khas Papua yang menghasilkan buah.",
+            "Merbau — pohon kayu yang terdapat di kawasan timur Indonesia.",
+            "Eukaliptus — memiliki hubungan dengan flora Australis.",
+            "Buah merah — tumbuhan khas Papua.",
+            "Kayu putih — dapat ditemukan di beberapa kawasan timur Indonesia."
+        ]
+    },
+
+
+    fauna:{
+
+        title:"Fauna Indonesia Timur — Australis",
+
+        text:
+        "Fauna Australis Indonesia memiliki hubungan biogeografis dengan kawasan Australia-Papua. Burung endemik dan mamalia berkantung merupakan contoh yang mudah dikenali.",
+
+        list:[
+            "Cenderawasih — Papua.",
+            "Kasuari — Papua.",
+            "Kanguru pohon — Papua.",
+            "Walabi — kawasan timur Indonesia.",
+            "Kakatua raja — Papua.",
+            "Ekidna — Papua."
+        ],
+
+        characteristics:[
+            "Banyak burung dengan warna dan bentuk khas.",
+            "Ditemukan mamalia berkantung.",
+            "Memiliki banyak spesies endemik.",
+            "Memiliki hubungan biogeografis dengan Australia.",
+            "Contoh khas: cenderawasih, kasuari dan kanguru pohon."
+        ]
+    },
+
+
+    lines:{
+
+        title:"Garis Lydekker dan Kawasan Australis",
+
+        text:
+        "Dalam pembagian biogeografi klasik, Garis Lydekker membantu menjelaskan batas antara Wallacea dan kawasan yang berhubungan dengan Paparan Sahul.",
+
+        lines:[
+            {
+                title:"Garis Lydekker",
+                text:
+                "Garis ini berada di bagian timur Wallacea dan mengikuti batas barat Paparan Sahul dalam konsep biogeografi.",
+                location:"Batas Wallacea — Sahul/Australis"
+            },
+
+            {
+                title:"Paparan Sahul",
+                text:
+                "Paparan Sahul berkaitan dengan kawasan Australia-Papua dan membantu menjelaskan hubungan biogeografis fauna Indonesia Timur dengan Australia.",
+                location:"Papua — Kepulauan Aru — Australia"
+            }
+        ]
+    },
+
+
+    terms:{
+
+        title:"Istilah Penting",
+
+        list:[
+            "<strong>Australis</strong> — istilah untuk fauna yang memiliki hubungan biogeografis dengan kawasan Australia-Papua.",
+            "<strong>Garis Lydekker</strong> — garis biogeografi yang menandai batas Wallacea dengan kawasan Sahul/Australis.",
+            "<strong>Paparan Sahul</strong> — landas kontinen yang secara geologis berkaitan dengan Australia dan Papua.",
+            "<strong>Fauna endemik</strong> — fauna yang persebaran alaminya terbatas pada wilayah tertentu.",
+            "<strong>Mamalia berkantung</strong> — kelompok mamalia yang dalam perkembangan anaknya memiliki kantung pada betina, contohnya kanguru."
+        ]
+    }
+
+}
 
 ];
 
 
-/* =====================================================
+/* =========================================================
    SOAL
-===================================================== */
+========================================================= */
 
 const questions = [
 
-    /* BARAT */
+/* BARAT */
 
-    {
-        zone:0,
+{
+    zone:0,
 
-        question:
-        "Sumatra, Jawa, Kalimantan dan Bali termasuk wilayah fauna...",
+    question:
+    "Menurut klasifikasi Köppen, ciri utama iklim Af adalah...",
 
-        answers:[
-            "Australis",
-            "Peralihan",
-            "Asiatis",
-            "Eropa"
-        ],
+    answers:[
+        "Curah hujan sangat rendah sepanjang tahun",
+        "Curah hujan bulan terkering tetap tinggi dan tidak ada musim kering nyata",
+        "Musim dingin panjang",
+        "Didominasi padang gurun"
+    ],
 
-        correct:2,
+    correct:1,
 
-        explanation:
-        "Sumatra, Jawa, Kalimantan dan Bali termasuk kawasan fauna Asiatis."
-    },
+    explanation:
+    "Af merupakan tipe hutan hujan tropis. Salah satu kriterianya adalah curah hujan bulan terkering lebih dari 60 mm."
+},
 
-    {
-        zone:0,
+{
+    zone:0,
 
-        question:
-        "Manakah yang merupakan fauna khas Indonesia Barat?",
+    question:
+    "Hewan yang paling tepat menunjukkan karakter fauna Asiatis adalah...",
 
-        answers:[
-            "Cenderawasih",
-            "Komodo",
-            "Orangutan",
-            "Kasuari"
-        ],
+    answers:[
+        "Cenderawasih",
+        "Kanguru pohon",
+        "Orangutan",
+        "Kasuari"
+    ],
 
-        correct:2,
+    correct:2,
 
-        explanation:
-        "Orangutan merupakan salah satu fauna khas Indonesia Barat."
-    },
+    explanation:
+    "Orangutan merupakan salah satu contoh fauna Asiatis Indonesia Barat."
+},
 
-    {
-        zone:0,
+{
+    zone:0,
 
-        question:
-        "Salah satu ciri fauna Asiatis adalah...",
+    question:
+    "Garis Wallace digunakan untuk menjelaskan batas penting antara...",
 
-        answers:[
-            "Banyak mamalia besar",
-            "Didominasi kanguru",
-            "Banyak burung khas Australia",
-            "Tidak memiliki primata"
-        ],
+    answers:[
+        "Asiatis dan Wallacea",
+        "Australis dan Eropa",
+        "Afrika dan Asia",
+        "Sahul dan Arktik"
+    ],
 
-        correct:0,
+    correct:0,
 
-        explanation:
-        "Fauna Asiatis memiliki banyak mamalia besar seperti gajah, badak dan harimau."
-    },
-
-
-    /* TENGAH */
-
-    {
-        zone:1,
-
-        question:
-        "Komodo merupakan fauna khas wilayah...",
-
-        answers:[
-            "Indonesia Barat",
-            "Indonesia Tengah",
-            "Indonesia Timur",
-            "Asia"
-        ],
-
-        correct:1,
-
-        explanation:
-        "Komodo merupakan fauna endemik Nusa Tenggara dan termasuk wilayah peralihan."
-    },
-
-    {
-        zone:1,
-
-        question:
-        "Hewan yang menjadi contoh fauna Sulawesi adalah...",
-
-        answers:[
-            "Anoa",
-            "Harimau",
-            "Badak Jawa",
-            "Orangutan"
-        ],
-
-        correct:0,
-
-        explanation:
-        "Anoa merupakan fauna endemik Sulawesi."
-    },
-
-    {
-        zone:1,
-
-        question:
-        "Wilayah peralihan banyak memiliki...",
-
-        answers:[
-            "Spesies endemik",
-            "Hewan kutub",
-            "Hewan Afrika",
-            "Mamalia laut saja"
-        ],
-
-        correct:0,
-
-        explanation:
-        "Wilayah peralihan dikenal memiliki banyak spesies endemik."
-    },
+    explanation:
+    "Dalam pembelajaran biogeografi Indonesia, Garis Wallace merupakan batas penting antara kawasan Asiatis dan Wallacea."
+},
 
 
-    /* TIMUR */
+/* TENGAH */
 
-    {
-        zone:2,
+{
+    zone:1,
 
-        question:
-        "Cenderawasih merupakan fauna khas...",
+    question:
+    "Wilayah Indonesia Tengah dikenal dalam biogeografi sebagai kawasan...",
 
-        answers:[
-            "Sumatra",
-            "Jawa",
-            "Sulawesi",
-            "Papua"
-        ],
+    answers:[
+        "Sunda",
+        "Wallacea",
+        "Sahul",
+        "Oriental murni"
+    ],
 
-        correct:3,
+    correct:1,
 
-        explanation:
-        "Cenderawasih merupakan salah satu burung khas Papua."
-    },
+    explanation:
+    "Indonesia Tengah dikenal sebagai kawasan Wallacea atau kawasan peralihan."
+},
 
-    {
-        zone:2,
+{
+    zone:1,
 
-        question:
-        "Salah satu ciri fauna Australis adalah...",
+    question:
+    "Hewan yang merupakan contoh fauna peralihan adalah...",
 
-        answers:[
-            "Banyak mamalia berkantung",
-            "Banyak harimau",
-            "Banyak badak",
-            "Banyak primata"
-        ],
+    answers:[
+        "Gajah Sumatra",
+        "Komodo",
+        "Cenderawasih",
+        "Kasuari"
+    ],
 
-        correct:0,
+    correct:1,
 
-        explanation:
-        "Kawasan Australis memiliki beberapa mamalia berkantung, seperti kanguru pohon."
-    },
+    explanation:
+    "Komodo merupakan fauna khas Nusa Tenggara dan termasuk contoh fauna peralihan."
+},
 
-    {
-        zone:2,
+{
+    zone:1,
 
-        question:
-        "Tumbuhan yang sangat penting sebagai sumber pangan di Papua adalah...",
+    question:
+    "Garis Weber dalam konsep biogeografi klasik digunakan untuk menunjukkan...",
 
-        answers:[
-            "Jati",
-            "Sagu",
-            "Teh",
-            "Karet"
-        ],
+    answers:[
+        "Garis keseimbangan unsur Asiatis dan Australis",
+        "Batas antara Indonesia dan Malaysia",
+        "Batas iklim tropis dan subtropis",
+        "Batas daratan dan lautan"
+    ],
 
-        correct:1,
+    correct:0,
 
-        explanation:
-        "Sagu merupakan salah satu tumbuhan penting sebagai sumber pangan masyarakat Papua."
-    }
+    explanation:
+    "Garis Weber merupakan garis keseimbangan persebaran unsur fauna Asiatis dan Australis dalam konsep biogeografi klasik."
+},
+
+
+/* TIMUR */
+
+{
+    zone:2,
+
+    question:
+    "Fauna yang paling tepat menunjukkan karakter Australis adalah...",
+
+    answers:[
+        "Badak Jawa",
+        "Harimau Sumatra",
+        "Cenderawasih",
+        "Orangutan"
+    ],
+
+    correct:2,
+
+    explanation:
+    "Cenderawasih merupakan salah satu fauna khas Papua dan menunjukkan karakter kawasan Australis."
+},
+
+{
+    zone:2,
+
+    question:
+    "Salah satu ciri fauna Australis di Indonesia adalah...",
+
+    answers:[
+        "Banyak mamalia berkantung",
+        "Banyak mamalia besar seperti gajah",
+        "Didominasi primata",
+        "Tidak terdapat burung endemik"
+    ],
+
+    correct:0,
+
+    explanation:
+    "Fauna Australis memiliki contoh mamalia berkantung seperti kanguru pohon dan walabi."
+},
+
+{
+    zone:2,
+
+    question:
+    "Garis yang digunakan untuk menjelaskan batas Wallacea dengan kawasan Sahul/Australis adalah...",
+
+    answers:[
+        "Garis Wallace",
+        "Garis Weber",
+        "Garis Lydekker",
+        "Garis Khatulistiwa"
+    ],
+
+    correct:2,
+
+    explanation:
+    "Garis Lydekker berada di bagian timur Wallacea dan berkaitan dengan batas kawasan Sahul/Australis."
+}
 
 ];
 
 
-/* =====================================================
-   GAME STATE
-===================================================== */
+/* =========================================================
+   STATE
+========================================================= */
 
 let currentZone = 0;
 
@@ -2227,9 +2689,9 @@ let currentQuestion = 0;
 let zoneQuestions = [];
 
 
-/* =====================================================
-   ELEMENT
-===================================================== */
+/* =========================================================
+   ELEMENTS
+========================================================= */
 
 const homeScreen =
     document.getElementById("homeScreen");
@@ -2247,9 +2709,9 @@ const resultScreen =
     document.getElementById("resultScreen");
 
 
-/* =====================================================
-   HIDE ALL
-===================================================== */
+/* =========================================================
+   HIDE SCREENS
+========================================================= */
 
 function hideScreens(){
 
@@ -2266,9 +2728,9 @@ function hideScreens(){
 }
 
 
-/* =====================================================
-   START
-===================================================== */
+/* =========================================================
+   START GAME
+========================================================= */
 
 function startGame(){
 
@@ -2278,7 +2740,8 @@ function startGame(){
 
     currentQuestion = 0;
 
-    document.getElementById("score").textContent = score;
+    document.getElementById("score")
+        .textContent = "0";
 
     updateMap();
 
@@ -2289,9 +2752,9 @@ function startGame(){
 }
 
 
-/* =====================================================
+/* =========================================================
    HOME
-===================================================== */
+========================================================= */
 
 function backHome(){
 
@@ -2302,9 +2765,9 @@ function backHome(){
 }
 
 
-/* =====================================================
+/* =========================================================
    MAP
-===================================================== */
+========================================================= */
 
 function showMap(){
 
@@ -2329,12 +2792,16 @@ function updateMap(){
             status.textContent =
                 "Selesai ✓";
 
-        }else if(i === currentZone){
+        }
+
+        else if(i === currentZone){
 
             status.textContent =
                 "Sedang dijelajahi";
 
-        }else{
+        }
+
+        else{
 
             status.textContent =
                 "Terkunci";
@@ -2346,21 +2813,16 @@ function updateMap(){
 }
 
 
-/* =====================================================
+/* =========================================================
    OPEN ZONE
-===================================================== */
+========================================================= */
 
 function openZone(index){
-
-    /*
-        Siswa hanya bisa membuka zona
-        yang sudah tersedia.
-    */
 
     if(index > currentZone){
 
         alert(
-            "Perjalanan ini belum sampai di wilayah tersebut."
+            "Wilayah ini belum terbuka. Selesaikan perjalanan sebelumnya terlebih dahulu."
         );
 
         return;
@@ -2374,9 +2836,9 @@ function openZone(index){
 }
 
 
-/* =====================================================
+/* =========================================================
    EXPLORE
-===================================================== */
+========================================================= */
 
 function showExplore(){
 
@@ -2387,10 +2849,16 @@ function showExplore(){
     const zone =
         zones[currentZone];
 
-    document.getElementById("zoneTitle").textContent =
-        zone.name;
 
-    document.getElementById("zoneDescription").textContent =
+    document.getElementById("zoneTitle")
+        .textContent =
+        zone.name
+        + " — "
+        + zone.type;
+
+
+    document.getElementById("zoneDescription")
+        .textContent =
         zone.description;
 
 
@@ -2400,31 +2868,37 @@ function showExplore(){
     header.className =
         "zone-header";
 
+
     if(zone.theme === "middle"){
 
-        header.classList.add("middle");
+        header.classList.add(
+            "middle-theme"
+        );
 
     }
+
 
     if(zone.theme === "east"){
 
-        header.classList.add("east");
+        header.classList.add(
+            "east-theme"
+        );
 
     }
 
 
-    document.getElementById("infoBox").innerHTML = `
+    document.getElementById("info")
+        .innerHTML = `
 
         <h3>
             Catatan Penjelajah
         </h3>
 
         <p>
-            Kamu berada di <strong>
-            ${zone.name}
-            </strong>.
-            Pilih Wilayah, Flora atau Fauna
-            untuk membaca catatan perjalanan.
+            Kamu sedang berada di
+            <strong>${zone.name}</strong>.
+            Pilih bagian materi di atas untuk
+            mempelajari kondisi wilayahnya.
         </p>
 
     `;
@@ -2432,14 +2906,15 @@ function showExplore(){
 }
 
 
-/* =====================================================
+/* =========================================================
    TOPIC
-===================================================== */
+========================================================= */
 
 function showTopic(type){
 
     const data =
         zones[currentZone][type];
+
 
     let html = `
 
@@ -2447,11 +2922,23 @@ function showTopic(type){
             ${data.title}
         </h3>
 
-        <p>
-            ${data.text}
-        </p>
-
     `;
+
+
+    if(data.text){
+
+        html += `
+
+            <p>
+                ${data.text}
+            </p>
+
+        `;
+
+    }
+
+
+    /* LIST */
 
     if(data.list){
 
@@ -2460,7 +2947,10 @@ function showTopic(type){
             <ul class="info-list">
 
                 ${data.list
-                    .map(item => `<li>${item}</li>`)
+                    .map(
+                        item =>
+                        `<li>${item}</li>`
+                    )
                     .join("")
                 }
 
@@ -2470,15 +2960,186 @@ function showTopic(type){
 
     }
 
-    document.getElementById("infoBox").innerHTML =
+
+    /* CHARACTERISTICS */
+
+    if(data.characteristics){
+
+        html += `
+
+            <div class="line-card">
+
+                <h4>
+                    Ciri-ciri utama
+                </h4>
+
+                <ul class="info-list">
+
+                    ${data.characteristics
+                        .map(
+                            item =>
+                            `<li>${item}</li>`
+                        )
+                        .join("")
+                    }
+
+                </ul>
+
+            </div>
+
+        `;
+
+    }
+
+
+    /* CLIMATE */
+
+    if(data.climateCards){
+
+        html += `
+
+            <div class="climate-grid">
+
+                ${data.climateCards
+                    .map(
+                        card => `
+
+                        <div class="climate-card">
+
+                            <strong>
+                                ${card.title}
+                            </strong>
+
+                            <span>
+                                ${card.text}
+                            </span>
+
+                        </div>
+
+                        `
+                    )
+                    .join("")
+                }
+
+            </div>
+
+        `;
+
+    }
+
+
+    /* BIOGEOGRAPHY LINES */
+
+    if(data.lines){
+
+        html += `
+
+            <div class="biogeography-map">
+
+                <div class="bio-row">
+
+                    <div class="bio-region">
+
+                        <strong>
+                            INDONESIA BARAT
+                        </strong>
+
+                        <span>
+                            Asiatis
+                            <br>
+                            Paparan Sunda
+                        </span>
+
+                        <div class="line-label">
+                            Garis Wallace
+                        </div>
+
+                    </div>
+
+
+                    <div class="bio-region">
+
+                        <strong>
+                            INDONESIA TENGAH
+                        </strong>
+
+                        <span>
+                            Wallacea
+                            <br>
+                            Peralihan
+                        </span>
+
+                        <div class="line-label">
+                            Garis Weber
+                        </div>
+
+                    </div>
+
+
+                    <div class="bio-region">
+
+                        <strong>
+                            INDONESIA TIMUR
+                        </strong>
+
+                        <span>
+                            Australis
+                            <br>
+                            Paparan Sahul
+                        </span>
+
+                        <div class="line-label">
+                            Garis Lydekker
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        `;
+
+
+        data.lines.forEach(
+            line => {
+
+                html += `
+
+                    <div class="line-card">
+
+                        <h4>
+                            ${line.title}
+                        </h4>
+
+                        <p>
+                            ${line.text}
+                        </p>
+
+                        <span class="line-location">
+                            ${line.location}
+                        </span>
+
+                    </div>
+
+                `;
+
+            }
+        );
+
+    }
+
+
+    document.getElementById("info")
+        .innerHTML =
         html;
 
 }
 
 
-/* =====================================================
-   START QUIZ
-===================================================== */
+/* =========================================================
+   QUIZ
+========================================================= */
 
 function startQuiz(){
 
@@ -2502,18 +3163,16 @@ function startQuiz(){
 }
 
 
-/* =====================================================
-   LOAD QUESTION
-===================================================== */
-
 function loadQuestion(){
 
     const q =
         zoneQuestions[currentQuestion];
 
+
     document.getElementById("questionNumber")
         .textContent =
         currentQuestion + 1;
+
 
     document.getElementById("question")
         .textContent =
@@ -2545,6 +3204,7 @@ function loadQuestion(){
 
             `;
 
+
             button.onclick = function(){
 
                 checkAnswer(
@@ -2554,19 +3214,21 @@ function loadQuestion(){
 
             };
 
+
             answers.appendChild(button);
 
         }
     );
 
 
-    const feedback =
-        document.getElementById("feedback");
-
-    feedback.className =
+    document.getElementById("feedback")
+        .className =
         "feedback";
 
-    feedback.innerHTML = "";
+
+    document.getElementById("feedback")
+        .innerHTML =
+        "";
 
 
     document.getElementById("nextButton")
@@ -2575,9 +3237,9 @@ function loadQuestion(){
 }
 
 
-/* =====================================================
+/* =========================================================
    CHECK ANSWER
-===================================================== */
+========================================================= */
 
 function checkAnswer(
     selected,
@@ -2587,22 +3249,29 @@ function checkAnswer(
     const q =
         zoneQuestions[currentQuestion];
 
+
     const buttons =
         document.querySelectorAll(".answer");
 
 
-    buttons.forEach(button => {
+    buttons.forEach(
+        button => {
 
-        button.disabled = true;
+            button.disabled = true;
 
-    });
+        }
+    );
 
 
     if(selected === q.correct){
 
-        clickedButton.classList.add("correct");
+        clickedButton.classList.add(
+            "correct"
+        );
+
 
         score += 10;
+
 
         document.getElementById("score")
             .textContent =
@@ -2611,22 +3280,29 @@ function checkAnswer(
 
         showFeedback(
             true,
-            "Jawabanmu tepat! "
-            + q.explanation
+            "Jawabanmu tepat. " +
+            q.explanation
         );
 
-    }else{
+    }
 
-        clickedButton.classList.add("wrong");
+    else{
+
+        clickedButton.classList.add(
+            "wrong"
+        );
+
 
         buttons[q.correct]
-            .classList.add("correct");
+            .classList.add(
+                "correct"
+            );
 
 
         showFeedback(
             false,
-            "Belum tepat. "
-            + q.explanation
+            "Belum tepat. " +
+            q.explanation
         );
 
     }
@@ -2634,44 +3310,49 @@ function checkAnswer(
 }
 
 
-/* =====================================================
+/* =========================================================
    FEEDBACK
-===================================================== */
+========================================================= */
 
 function showFeedback(
-    good,
+    correct,
     text
 ){
 
     const feedback =
         document.getElementById("feedback");
 
+
     feedback.className =
         "feedback show "
         +
         (
-            good
+            correct
             ? "good"
             : "bad"
         );
+
 
     feedback.innerHTML =
         text;
 
 
     document.getElementById("nextButton")
-        .classList.remove("hidden");
+        .classList.remove(
+            "hidden"
+        );
 
 }
 
 
-/* =====================================================
-   NEXT QUESTION
-===================================================== */
+/* =========================================================
+   NEXT
+========================================================= */
 
 function nextQuestion(){
 
     currentQuestion++;
+
 
     if(
         currentQuestion <
@@ -2680,7 +3361,9 @@ function nextQuestion(){
 
         loadQuestion();
 
-    }else{
+    }
+
+    else{
 
         finishZone();
 
@@ -2689,9 +3372,9 @@ function nextQuestion(){
 }
 
 
-/* =====================================================
+/* =========================================================
    FINISH ZONE
-===================================================== */
+========================================================= */
 
 function finishZone(){
 
@@ -2703,7 +3386,9 @@ function finishZone(){
 
         showMap();
 
-    }else{
+    }
+
+    else{
 
         finishGame();
 
@@ -2712,15 +3397,18 @@ function finishZone(){
 }
 
 
-/* =====================================================
+/* =========================================================
    FINISH GAME
-===================================================== */
+========================================================= */
 
 function finishGame(){
 
     hideScreens();
 
-    resultScreen.classList.remove("hidden");
+    resultScreen.classList.remove(
+        "hidden"
+    );
+
 
     document.getElementById("finalScore")
         .textContent =
@@ -2733,17 +3421,21 @@ function finishGame(){
     if(score >= 80){
 
         message =
-        "Pemahamanmu tentang persebaran flora dan fauna Indonesia sangat baik. Perjalananmu sebagai penjelajah berhasil sampai ke ujung timur Indonesia.";
+        "Sangat baik. Kamu sudah memahami hubungan antara iklim, vegetasi, flora, fauna dan pembagian biogeografi Indonesia.";
 
-    }else if(score >= 60){
+    }
 
-        message =
-        "Perjalananmu sudah bagus. Kamu sudah mengenali sebagian besar wilayah, flora dan fauna Indonesia. Coba lagi untuk mendapatkan hasil yang lebih baik.";
-
-    }else{
+    else if(score >= 60){
 
         message =
-        "Tidak apa-apa, perjalanan pertama memang menjadi kesempatan untuk belajar. Coba jelajahi kembali setiap wilayah dan perhatikan catatan penjelajah.";
+        "Bagus. Kamu sudah memahami sebagian besar perjalanan. Coba baca kembali catatan mengenai iklim dan garis biogeografi.";
+
+    }
+
+    else{
+
+        message =
+        "Tidak apa-apa. Gunakan ekspedisi ini untuk belajar kembali. Perhatikan hubungan antara wilayah, iklim, vegetasi dan fauna.";
 
     }
 
@@ -2755,9 +3447,9 @@ function finishGame(){
 }
 
 
-/* =====================================================
+/* =========================================================
    RESTART
-===================================================== */
+========================================================= */
 
 function restartGame(){
 
@@ -2767,22 +3459,26 @@ function restartGame(){
 
     currentQuestion = 0;
 
+
     document.getElementById("score")
         .textContent =
         "0";
+
 
     updateMap();
 
     hideScreens();
 
-    mapScreen.classList.remove("hidden");
+    mapScreen.classList.remove(
+        "hidden"
+    );
 
 }
 
 
-/* =====================================================
-   KEYBOARD
-===================================================== */
+/* =========================================================
+   KEYBOARD SUPPORT
+========================================================= */
 
 document.addEventListener(
     "keydown",
@@ -2829,13 +3525,15 @@ document.addEventListener(
 );
 
 
-/* =====================================================
+/* =========================================================
    INITIAL
-===================================================== */
+========================================================= */
 
 hideScreens();
 
-homeScreen.classList.remove("hidden");
+homeScreen.classList.remove(
+    "hidden"
+);
 
 </script>
 
